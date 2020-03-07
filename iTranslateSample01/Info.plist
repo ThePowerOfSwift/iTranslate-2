@@ -41,5 +41,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>In order to use voice to voice conversation, iTranslate needs your permission to use your iPhone’s microphone.</string>
 </dict>
 </plist>
