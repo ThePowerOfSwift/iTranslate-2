@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E003FCE2413FE33002DEA8B /* RecordProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E003FCD2413FE33002DEA8B /* RecordProtocols.swift */; };
 		5E11C50624137D0C0084FB21 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E11C50524137D0B0084FB21 /* RecordViewController.swift */; };
+		5E11C50E241394250084FB21 /* RecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E11C50D241394250084FB21 /* RecordViewModel.swift */; };
+		5E11C5102413D2090084FB21 /* RecordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E11C50F2413D2090084FB21 /* RecordManager.swift */; };
+		5E76D7C52414018900F074DD /* RecordPermissionAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E76D7C42414018900F074DD /* RecordPermissionAlertViewController.swift */; };
+		5E76D7C82414112900F074DD /* ResponderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E76D7C72414112900F074DD /* ResponderExtension.swift */; };
 		D2D777CB22CDCC1100427FC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D777CA22CDCC1100427FC0 /* AppDelegate.swift */; };
 		D2D777D022CDCC1100427FC0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2D777CE22CDCC1100427FC0 /* Main.storyboard */; };
 		D2D777D222CDCC1200427FC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2D777D122CDCC1200427FC0 /* Assets.xcassets */; };
@@ -35,7 +40,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5E003FCD2413FE33002DEA8B /* RecordProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordProtocols.swift; sourceTree = "<group>"; };
 		5E11C50524137D0B0084FB21 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
+		5E11C50D241394250084FB21 /* RecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewModel.swift; sourceTree = "<group>"; };
+		5E11C50F2413D2090084FB21 /* RecordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordManager.swift; sourceTree = "<group>"; };
+		5E76D7C42414018900F074DD /* RecordPermissionAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordPermissionAlertViewController.swift; sourceTree = "<group>"; };
+		5E76D7C72414112900F074DD /* ResponderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponderExtension.swift; sourceTree = "<group>"; };
 		D2D777C722CDCC1100427FC0 /* iTranslateSample01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTranslateSample01.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2D777CA22CDCC1100427FC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2D777CF22CDCC1100427FC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -76,9 +86,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E003FCF2413FE46002DEA8B /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				5E003FCD2413FE33002DEA8B /* RecordProtocols.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		5E11C507241389100084FB21 /* Record */ = {
 			isa = PBXGroup;
 			children = (
+				5E003FCF2413FE46002DEA8B /* Protocol */,
 				5E11C50A241389350084FB21 /* Model */,
 				5E11C5092413892D0084FB21 /* ViewModel */,
 				5E11C508241389220084FB21 /* ViewController */,
@@ -90,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				5E11C50524137D0B0084FB21 /* RecordViewController.swift */,
+				5E76D7C42414018900F074DD /* RecordPermissionAlertViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -97,6 +117,8 @@
 		5E11C5092413892D0084FB21 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				D2D777F822CDCC8100427FC0 /* ViewModel.swift */,
+				5E11C50D241394250084FB21 /* RecordViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -113,6 +135,22 @@
 			children = (
 			);
 			path = RecordList;
+			sourceTree = "<group>";
+		};
+		5E11C50C2413900E0084FB21 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				5E11C50F2413D2090084FB21 /* RecordManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		5E76D7C62414110500F074DD /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				5E76D7C72414112900F074DD /* ResponderExtension.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		D2D777BE22CDCC1100427FC0 = {
@@ -138,14 +176,15 @@
 		D2D777C922CDCC1100427FC0 /* iTranslateSample01 */ = {
 			isa = PBXGroup;
 			children = (
-				5E11C50B241389430084FB21 /* RecordList */,
+				5E76D7C62414110500F074DD /* Helpers */,
+				5E11C50C2413900E0084FB21 /* Managers */,
 				5E11C507241389100084FB21 /* Record */,
+				5E11C50B241389430084FB21 /* RecordList */,
 				D2D777CA22CDCC1100427FC0 /* AppDelegate.swift */,
 				D2D777CE22CDCC1100427FC0 /* Main.storyboard */,
 				D2D777D122CDCC1200427FC0 /* Assets.xcassets */,
 				D2D777D322CDCC1200427FC0 /* LaunchScreen.storyboard */,
 				D2D777D622CDCC1200427FC0 /* Info.plist */,
-				D2D777F822CDCC8100427FC0 /* ViewModel.swift */,
 			);
 			path = iTranslateSample01;
 			sourceTree = "<group>";
@@ -299,9 +338,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E76D7C52414018900F074DD /* RecordPermissionAlertViewController.swift in Sources */,
 				D2D777F922CDCC8100427FC0 /* ViewModel.swift in Sources */,
+				5E76D7C82414112900F074DD /* ResponderExtension.swift in Sources */,
 				D2D777CB22CDCC1100427FC0 /* AppDelegate.swift in Sources */,
+				5E003FCE2413FE33002DEA8B /* RecordProtocols.swift in Sources */,
 				5E11C50624137D0C0084FB21 /* RecordViewController.swift in Sources */,
+				5E11C5102413D2090084FB21 /* RecordManager.swift in Sources */,
+				5E11C50E241394250084FB21 /* RecordViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

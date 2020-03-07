@@ -8,11 +8,14 @@
 
 import Foundation
 
-protocol ViewModelDelegate: class {
-    func signalUpdate()
-}
+protocol ViewModelDelegate: class { }
 
 protocol ViewModelController: ViewModelDelegate {
     associatedtype ControllerViewModel
     var viewModel: ControllerViewModel { get }
+}
+
+protocol ViewModel {
+    associatedtype Delegate
+    var delegate: Delegate? { get }
 }
