@@ -24,6 +24,6 @@ class Record: BaseObject {
         self.id = id
         self.filePath = filePath
         self.name = name
-        self.time = name
+        self.time = time
     }
 }

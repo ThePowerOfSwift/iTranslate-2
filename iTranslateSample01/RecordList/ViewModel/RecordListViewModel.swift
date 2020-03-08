@@ -11,14 +11,20 @@ import Foundation
 class RecordListViewModel: RecordListViewModelProtocol {
     
     var delegate: RecordListViewModelDelegate?
+    
+    var allRecords = [Record]()
 
     func fetchRecords() {
-        let allRecords = Record.cached()
-        if allRecords.isEmpty {
+        let allData = Record.cached()
+        allRecords = allData
+        let allDisplayModels = allData.map { (record) -> RecordDisplayViewModel in
+            return RecordDisplayViewModel(name: record.name, duration: record.time)
+        }
+        if allDisplayModels.isEmpty {
             delegate?.showError(type: .empty, error: nil)
         }
         else {
-            delegate?.showRecords(records: allRecords)
+            delegate?.showRecords(records: allDisplayModels)
         }
     }
     
