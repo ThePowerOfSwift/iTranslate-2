@@ -31,6 +31,10 @@ extension Caching where Self: BaseObject {
             updateHandler(self)
         }
     }
+    
+    func delete() {
+        DataManager.shared.remove(object: self)
+    }
 }
 
 extension Array where Element: BaseObject {

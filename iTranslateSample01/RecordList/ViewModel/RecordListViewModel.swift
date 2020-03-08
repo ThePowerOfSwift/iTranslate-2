@@ -28,4 +28,11 @@ class RecordListViewModel: RecordListViewModelProtocol {
         }
     }
     
+    func removeRecord(index: Int) {
+        let recordToDelete = allRecords[index]
+        recordToDelete.delete()
+        
+        allRecords.remove(at: index)
+    }
+    
 }

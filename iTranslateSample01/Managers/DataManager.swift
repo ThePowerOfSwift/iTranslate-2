@@ -39,4 +39,11 @@ class DataManager {
             database.delete(objects)
         }
     }
+    
+    func remove(object: Object, update: Bool = true) {
+        try! database.write {
+            database.delete(object)
+        }
+    }
+    
 }
