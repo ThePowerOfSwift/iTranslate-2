@@ -10,7 +10,8 @@ import Foundation
 
 // viewmodel to view
 protocol RecordViewModelDelegate: ViewModelDelegate {
-    func updateRecordButton(state: RecordState)
+    func recordingDidStart()
+    func recordingDidStop()
     func showAudioPermissionAlert()
 }
 
@@ -20,6 +21,7 @@ protocol RecordModelController: ViewModelController {
 
 // view to viewmodel
 protocol RecordViewModelProtocol: ViewModel {
-    func startRecording()
+    var state: RecordState { get set }
+    func handleRecordButtonTap()
     func showRecordList()
 }

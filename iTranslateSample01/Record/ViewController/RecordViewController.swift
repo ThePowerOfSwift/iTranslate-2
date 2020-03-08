@@ -42,12 +42,12 @@ class RecordViewController: UIViewController, RecordModelController {
         animationView.center = view.center
     }
     
-    func removeRecordAnimation() {
+    func stopRecordAnimation() {
         animationView.removeFromSuperview()
     }
 
     @IBAction func recordButtonAction(_ sender: UIButton) {
-        viewModel.startRecording()
+        viewModel.handleRecordButtonTap()
     }
     
     @IBAction func showRecordingButtonAction(_ sender: UIButton) {
@@ -59,8 +59,8 @@ extension RecordViewController: RecordViewModelDelegate {
     
     func showAudioPermissionAlert() {
         guard let alertView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: RecordPermissionAlertViewController.identifier) as? RecordPermissionAlertViewController else { return }
-        alertView.allowCompletion = {
-            
+        alertView.allowCompletion = { [weak self] in
+            self?.viewModel.handleRecordButtonTap()
         }
         alertView.laterCompletion = {
             
@@ -69,14 +69,11 @@ extension RecordViewController: RecordViewModelDelegate {
         present(alertView, animated: true, completion: nil)
     }
     
-    func updateRecordButton(state: RecordState) {
-        if state == .start {
-            startRecordAnimation()
-        }
-        else {
-            removeRecordAnimation()
-        }
+    func recordingDidStart() {
+        startRecordAnimation()
     }
     
-    
+    func recordingDidStop() {
+        stopRecordAnimation()
+    }
 }

@@ -17,15 +17,30 @@ class RecordViewModel: RecordViewModelProtocol {
     
     var delegate: RecordViewModelDelegate?
     
-    func startRecording() {
-        RecordManager.checkPermissionStatus { [weak self] (status) in
-            switch status {
-            case .granted:
-                self?.delegate?.updateRecordButton(state: .start)
-            case .denied, .undetermined:
-                self?.delegate?.showAudioPermissionAlert()
+    var state: RecordState = .stop {
+        didSet {
+            handleRecordState()
+        }
+    }
+    
+    func handleRecordButtonTap() {
+        if state == .start {
+            state = .stop
+        }
+        else {
+            RecordManager.checkPermissionStatus { [weak self] (status) in
+                switch status {
+                case .granted:
+                    self?.state = .start
+                case .denied, .undetermined:
+                    self?.delegate?.showAudioPermissionAlert()
+                }
             }
         }
+    }
+    
+    func handleRecordState() {
+        (state == .stop) ? delegate?.recordingDidStop() : delegate?.recordingDidStart()
     }
     
     func showRecordList() {
