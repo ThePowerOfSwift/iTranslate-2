@@ -88,6 +88,10 @@ extension RecordViewController: RecordViewModelDelegate {
         present(alertView, animated: true, completion: nil)
     }
     
+    func showError(type: AlertController.Alert, error: Error?) {
+        AlertController.show(type: type, error: error)
+    }
+    
     func recordingDidStart() {
         startRecordAnimation()
     }

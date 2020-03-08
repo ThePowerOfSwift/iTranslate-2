@@ -28,7 +28,7 @@ class RecordViewModel: RecordViewModelProtocol {
         case .start:
             state = .stop
         case .stop:
-            RecordManager.shared.checkPermissionStatus { [weak self] (status) in
+            AudioManager.shared.checkPermissionStatus { [weak self] (status) in
                 self?.handlePermissionStatus(status: status)
             }
         }
@@ -48,8 +48,8 @@ class RecordViewModel: RecordViewModelProtocol {
         DispatchQueue.main.async { [weak self] in
             guard let welf = self else { return }
             if welf.state == .stop {
-                RecordManager.shared.stopRecording()
-                RecordManager.shared.recordCompletion = { (recorder, flag ) in
+                AudioManager.shared.stopRecording()
+                AudioManager.shared.recordCompletion = { (recorder, flag ) in
                     print(recorder.url)
                     welf.showPopUpToAddRecordName(temporaryPath: recorder.url)
 
@@ -57,7 +57,7 @@ class RecordViewModel: RecordViewModelProtocol {
                 welf.delegate?.recordingDidStop()
             }
             else {
-                RecordManager.shared.startRecording()
+                AudioManager.shared.startRecording()
                 welf.delegate?.recordingDidStart()
             }
         }
@@ -75,23 +75,31 @@ class RecordViewModel: RecordViewModelProtocol {
         delegate?.getRecordNameFromUser(completion: { [weak self] (text) in
             guard let destination = self?.newFileLocation(name: text) else { return }
 
-            RecordManager.shared.moveFile(from: temporaryPath, toPath: destination) { (status) in
-                if status {
-                    self?.addNewRecord(filePath: destination)
-                }
-            }
+            self?.updateAudioFilePath(temporaryPath: temporaryPath, destination: destination)
         })
     }
-
     
+    func updateAudioFilePath(temporaryPath: URL, destination: URL) {
+        AudioManager.shared.moveFile(from: temporaryPath, toPath: destination) { [weak self] (result) in
+            
+            switch result {
+            case .success:
+                self?.addNewRecord(filePath: destination)
+            case .failure(let error):
+                self?.delegate?.showError(type: .systemError, error: error)
+            }
+        
+        }
+    }
+
     func newFileLocation(name: String) -> URL {
         let fileName = name + ".m4a"
-        let audioFileUrl = RecordManager.shared.directoryUrl.appendingPathComponent(fileName)
+        let audioFileUrl = AudioManager.shared.directoryUrl.appendingPathComponent(fileName)
         return audioFileUrl
     }
     
     func handleAllowRecordingFromPopUp() {
-        RecordManager.shared.requestForPermission { [weak self] (status) in
+        AudioManager.shared.requestForPermission { [weak self] (status) in
             self?.handlePermissionStatus(status: status)
         }
     }

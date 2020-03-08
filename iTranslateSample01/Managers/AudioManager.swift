@@ -18,9 +18,9 @@ enum PermissionStatus {
     case undetermined
 }
 
-class RecordManager: NSObject {
+class AudioManager: NSObject {
     
-    static let shared = RecordManager()
+    static let shared = AudioManager()
     
     typealias RecordCompletion = (_ recorder: AVAudioRecorder, _ flag: Bool) -> ()
     var recordCompletion: RecordCompletion?
@@ -86,19 +86,18 @@ class RecordManager: NSObject {
         audioRecorder = nil
     }
     
-    func moveFile(from path: URL, toPath: URL, completion: (Bool) -> Void) {
+    func moveFile(from path: URL, toPath: URL, completion: (Result<Bool,Error>) -> Void) {
         do {
             try FileManager.default.moveItem(at: path, to: toPath)
-            completion(true)
+            completion(.success(true))
         }
         catch { 
-            print(error)
-            completion(false)
+            completion(.failure(error))
         }
     }
 }
 
-extension RecordManager: AVAudioRecorderDelegate {
+extension AudioManager: AVAudioRecorderDelegate {
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         recordCompletion?(recorder, flag)
     }
