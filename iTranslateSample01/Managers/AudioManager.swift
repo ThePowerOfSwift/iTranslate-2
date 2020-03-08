@@ -22,7 +22,7 @@ class AudioManager: NSObject {
     
     static let shared = AudioManager()
     
-    typealias RecordCompletion = (_ recorder: AVAudioRecorder, _ flag: Bool) -> ()
+    typealias RecordCompletion = (_ recorder: AVAudioRecorder,_ duration: String, _ flag: Bool) -> ()
     var recordCompletion: RecordCompletion?
     
     var directoryUrl: URL {
@@ -99,6 +99,9 @@ class AudioManager: NSObject {
 
 extension AudioManager: AVAudioRecorderDelegate {
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
-        recordCompletion?(recorder, flag)
+        let player = try? AVAudioPlayer(contentsOf: recorder.url)
+        let duration = player?.duration ?? 0.0
+        
+        recordCompletion?(recorder,duration.stringValue(), flag)
     }
 }

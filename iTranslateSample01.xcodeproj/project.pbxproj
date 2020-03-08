@@ -19,6 +19,8 @@
 		5E237E2224150BAC004AB922 /* Caching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E237E2124150BAC004AB922 /* Caching.swift */; };
 		5E237E2424150BDE004AB922 /* BaseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E237E2324150BDE004AB922 /* BaseObject.swift */; };
 		5E6CEBD924153FB300F73A1D /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6CEBD824153FB300F73A1D /* AlertController.swift */; };
+		5E6CEBDE24154AEE00F73A1D /* RecordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6CEBDD24154AEE00F73A1D /* RecordListViewController.swift */; };
+		5E6CEBE22415620700F73A1D /* TimeIntervalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6CEBE12415620700F73A1D /* TimeIntervalExtension.swift */; };
 		5E76D7C52414018900F074DD /* RecordPermissionAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E76D7C42414018900F074DD /* RecordPermissionAlertViewController.swift */; };
 		5E76D7C82414112900F074DD /* ResponderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E76D7C72414112900F074DD /* ResponderExtension.swift */; };
 		D2D777CB22CDCC1100427FC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D777CA22CDCC1100427FC0 /* AppDelegate.swift */; };
@@ -63,6 +65,8 @@
 		5E237E2124150BAC004AB922 /* Caching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Caching.swift; sourceTree = "<group>"; };
 		5E237E2324150BDE004AB922 /* BaseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseObject.swift; sourceTree = "<group>"; };
 		5E6CEBD824153FB300F73A1D /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
+		5E6CEBDD24154AEE00F73A1D /* RecordListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListViewController.swift; sourceTree = "<group>"; };
+		5E6CEBE12415620700F73A1D /* TimeIntervalExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeIntervalExtension.swift; sourceTree = "<group>"; };
 		5E76D7C42414018900F074DD /* RecordPermissionAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordPermissionAlertViewController.swift; sourceTree = "<group>"; };
 		5E76D7C72414112900F074DD /* ResponderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponderExtension.swift; sourceTree = "<group>"; };
 		61970C44116C7CB5633F52AB /* Pods-iTranslateSample01-iTranslateSample01UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTranslateSample01-iTranslateSample01UITests.debug.xcconfig"; path = "Target Support Files/Pods-iTranslateSample01-iTranslateSample01UITests/Pods-iTranslateSample01-iTranslateSample01UITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -161,6 +165,9 @@
 		5E11C50B241389430084FB21 /* RecordList */ = {
 			isa = PBXGroup;
 			children = (
+				5E6CEBDC24154A7400F73A1D /* ViewController */,
+				5E6CEBDB24154A6A00F73A1D /* ViewModel */,
+				5E6CEBDA24154A5500F73A1D /* Protocol */,
 			);
 			path = RecordList;
 			sourceTree = "<group>";
@@ -175,9 +182,32 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
+		5E6CEBDA24154A5500F73A1D /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		5E6CEBDB24154A6A00F73A1D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5E6CEBDC24154A7400F73A1D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5E6CEBDD24154AEE00F73A1D /* RecordListViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		5E76D7C62414110500F074DD /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				5E6CEBE12415620700F73A1D /* TimeIntervalExtension.swift */,
 				5E76D7C72414112900F074DD /* ResponderExtension.swift */,
 				5E237E1B24143674004AB922 /* View.swift */,
 				5E6CEBD824153FB300F73A1D /* AlertController.swift */,
@@ -511,12 +541,14 @@
 				5E6CEBD924153FB300F73A1D /* AlertController.swift in Sources */,
 				D2D777CB22CDCC1100427FC0 /* AppDelegate.swift in Sources */,
 				5E003FCE2413FE33002DEA8B /* RecordProtocols.swift in Sources */,
+				5E6CEBE22415620700F73A1D /* TimeIntervalExtension.swift in Sources */,
 				5E237E2424150BDE004AB922 /* BaseObject.swift in Sources */,
 				5E237E1C24143674004AB922 /* View.swift in Sources */,
 				5E11C50624137D0C0084FB21 /* RecordViewController.swift in Sources */,
 				5E237E2024150B86004AB922 /* DataManager.swift in Sources */,
 				5E237E2224150BAC004AB922 /* Caching.swift in Sources */,
 				5E11C5102413D2090084FB21 /* AudioManager.swift in Sources */,
+				5E6CEBDE24154AEE00F73A1D /* RecordListViewController.swift in Sources */,
 				5E11C50E241394250084FB21 /* RecordViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
