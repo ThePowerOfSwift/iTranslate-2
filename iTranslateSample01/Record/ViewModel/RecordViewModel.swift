@@ -23,6 +23,12 @@ class RecordViewModel: RecordViewModelProtocol {
         }
     }
     
+    var newFileLocation: URL {
+        let fileName = "\(Record.cached().count)" + ".m4a"
+        let audioFileUrl = AudioManager.shared.directoryUrl.appendingPathComponent(fileName)
+        return audioFileUrl
+    }
+    
     func handleRecordButtonTap() {
         switch state {
         case .start:
@@ -63,39 +69,30 @@ class RecordViewModel: RecordViewModelProtocol {
         }
     }
     
-    func addNewRecord(filePath: URL) {
+    func addNewRecord(filePath: URL, name: String) {
         let records = Record.cached()
         
-        let record = Record(id: ("\(records.count + 1)"), filePath: filePath.absoluteString)
+        let record = Record(id: ("\(records.count + 1)"), filePath: filePath.absoluteString, name: name)
         record.save()
-        
     }
     
     func showPopUpToAddRecordName(temporaryPath: URL) {
         delegate?.getRecordNameFromUser(completion: { [weak self] (text) in
-            guard let destination = self?.newFileLocation(name: text) else { return }
+            guard let destination = self?.newFileLocation else { return }
 
-            self?.updateAudioFilePath(temporaryPath: temporaryPath, destination: destination)
+            self?.updateAudioFilePath(temporaryPath: temporaryPath, destination: destination, recordName: text)
         })
     }
     
-    func updateAudioFilePath(temporaryPath: URL, destination: URL) {
+    func updateAudioFilePath(temporaryPath: URL, destination: URL, recordName: String) {
         AudioManager.shared.moveFile(from: temporaryPath, toPath: destination) { [weak self] (result) in
-            
             switch result {
             case .success:
-                self?.addNewRecord(filePath: destination)
+                self?.addNewRecord(filePath: destination, name: recordName)
             case .failure(let error):
                 self?.delegate?.showError(type: .systemError, error: error)
             }
-        
         }
-    }
-
-    func newFileLocation(name: String) -> URL {
-        let fileName = name + ".m4a"
-        let audioFileUrl = AudioManager.shared.directoryUrl.appendingPathComponent(fileName)
-        return audioFileUrl
     }
     
     func handleAllowRecordingFromPopUp() {
