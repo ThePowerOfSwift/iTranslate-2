@@ -10,9 +10,8 @@ import UIKit
 
 class RecordViewController: UIViewController, RecordModelController {
     
-    var viewModel: RecordViewModel {
-        RecordViewModel()
-    }
+    var viewModel = RecordViewModel()
+    let animationView = UIView(frame: CGRect(x: 200, y: 200, width: 150, height: 150))
     
     @IBOutlet weak var recordButton: UIButton?
 
@@ -20,6 +19,31 @@ class RecordViewController: UIViewController, RecordModelController {
         super.viewDidLoad()
 
         viewModel.delegate = self
+    }
+    
+    func startRecordAnimation() {
+        animationView.layer.cornerRadius = 75
+        animationView.backgroundColor = UIColor.red
+        animationView.layer.borderColor = UIColor.red.cgColor
+        animationView.layer.borderWidth = 2.0
+        
+        view.addSubview(animationView)
+        let scaleAnimation:CABasicAnimation = CABasicAnimation(keyPath: "transform.scale")
+
+        scaleAnimation.duration = 0.5
+        scaleAnimation.repeatCount = 30.0
+        scaleAnimation.autoreverses = true
+        scaleAnimation.fromValue = 1;
+        scaleAnimation.toValue = 1.2;
+
+        animationView.layer.add(scaleAnimation, forKey: "scale")
+        view.sendSubviewToBack(animationView)
+
+        animationView.center = view.center
+    }
+    
+    func removeRecordAnimation() {
+        animationView.removeFromSuperview()
     }
 
     @IBAction func recordButtonAction(_ sender: UIButton) {
@@ -41,15 +65,16 @@ extension RecordViewController: RecordViewModelDelegate {
         alertView.laterCompletion = {
             
         }
+        alertView.modalPresentationStyle = .fullScreen
         present(alertView, animated: true, completion: nil)
     }
     
     func updateRecordButton(state: RecordState) {
         if state == .start {
-            // started
+            startRecordAnimation()
         }
         else {
-            // stopped
+            removeRecordAnimation()
         }
     }
     

@@ -22,7 +22,7 @@
                                     <constraint firstAttribute="height" constant="150" id="KHe-xF-rdR"/>
                                     <constraint firstAttribute="width" constant="150" id="x7g-Ox-0K6"/>
                                 </constraints>
-                                <state key="normal" image="mic"/>
+                                <state key="normal" backgroundImage="mic"/>
                                 <connections>
                                     <action selector="recordButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ul2-7z-ipw"/>
                                 </connections>
@@ -55,7 +55,7 @@
         <!--Record Permission Alert View Controller-->
         <scene sceneID="0og-9p-gFk">
             <objects>
-                <viewController id="WI4-mk-ieh" customClass="RecordPermissionAlertViewController" customModule="iTranslateSample01" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecordPermissionAlertViewController" id="WI4-mk-ieh" customClass="RecordPermissionAlertViewController" customModule="iTranslateSample01" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3m4-fY-bTi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -63,72 +63,78 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NIN-Ki-qDd">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Me8-Rc-bkS">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backdrop" translatesAutoresizingMaskIntoConstraints="NO" id="Me8-Rc-bkS">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bla-kb-uxb">
-                                        <rect key="frame" x="30" y="120.5" width="354" height="655"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bla-kb-uxb" customClass="View" customModule="iTranslateSample01" customModuleProvider="target">
+                                        <rect key="frame" x="30" y="208" width="354" height="480.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="micPermission" translatesAutoresizingMaskIntoConstraints="NO" id="XoI-Ju-eo1">
-                                                <rect key="frame" x="117" y="45" width="120" height="120"/>
+                                                <rect key="frame" x="117" y="50" width="120" height="120"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="120" id="Yo1-7A-CoE"/>
                                                     <constraint firstAttribute="width" constant="120" id="ezh-lc-vmI"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Microphone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Uj-cg-Jhp">
-                                                <rect key="frame" x="112.5" y="180" width="129" height="30"/>
+                                                <rect key="frame" x="112.5" y="185" width="129" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <color key="textColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In order to use voice to voice conversation, iTranslate needs your permission to use your iPhone’s microphone." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tnx-Nh-aqW">
-                                                <rect key="frame" x="30" y="220" width="294" height="91"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                <rect key="frame" x="30" y="235" width="294" height="81.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q4X-8p-9tv">
+                                                <rect key="frame" x="67" y="346.5" width="220" height="44"/>
+                                                <state key="normal" image="buttonAllow"/>
+                                                <connections>
+                                                    <action selector="allowPermissionButtonAction:" destination="WI4-mk-ieh" eventType="touchUpInside" id="x8H-bq-tzv"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wDi-gM-IEW">
+                                                <rect key="frame" x="134.5" y="410.5" width="85" height="30"/>
+                                                <state key="normal" title="May be later"/>
+                                                <connections>
+                                                    <action selector="mayBeLaterButtonAction:" destination="WI4-mk-ieh" eventType="touchUpInside" id="Or1-5f-Qfk"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstItem="tnx-Nh-aqW" firstAttribute="leading" secondItem="Bla-kb-uxb" secondAttribute="leading" constant="30" id="CQ9-pi-ndF"/>
+                                            <constraint firstItem="q4X-8p-9tv" firstAttribute="top" secondItem="tnx-Nh-aqW" secondAttribute="bottom" constant="30" id="EAt-pQ-nQT"/>
                                             <constraint firstItem="1Uj-cg-Jhp" firstAttribute="centerX" secondItem="Bla-kb-uxb" secondAttribute="centerX" id="EGs-oq-Dko"/>
                                             <constraint firstItem="1Uj-cg-Jhp" firstAttribute="top" secondItem="XoI-Ju-eo1" secondAttribute="bottom" constant="15" id="Qrw-M9-Lgc"/>
-                                            <constraint firstItem="XoI-Ju-eo1" firstAttribute="top" secondItem="Bla-kb-uxb" secondAttribute="top" constant="45" id="Uw1-2W-Hby"/>
+                                            <constraint firstItem="XoI-Ju-eo1" firstAttribute="top" secondItem="Bla-kb-uxb" secondAttribute="top" constant="50" id="Uw1-2W-Hby"/>
+                                            <constraint firstItem="q4X-8p-9tv" firstAttribute="centerX" secondItem="Bla-kb-uxb" secondAttribute="centerX" id="XSC-f5-Usu"/>
+                                            <constraint firstItem="wDi-gM-IEW" firstAttribute="centerX" secondItem="Bla-kb-uxb" secondAttribute="centerX" id="bRi-fC-Tfy"/>
+                                            <constraint firstItem="wDi-gM-IEW" firstAttribute="top" secondItem="q4X-8p-9tv" secondAttribute="bottom" constant="20" id="glC-Be-BY5"/>
                                             <constraint firstAttribute="trailing" secondItem="tnx-Nh-aqW" secondAttribute="trailing" constant="30" id="guJ-XZ-ler"/>
                                             <constraint firstItem="XoI-Ju-eo1" firstAttribute="centerX" secondItem="Bla-kb-uxb" secondAttribute="centerX" id="soC-rt-JTR"/>
-                                            <constraint firstItem="tnx-Nh-aqW" firstAttribute="top" secondItem="1Uj-cg-Jhp" secondAttribute="bottom" constant="10" id="ttj-md-Pjh"/>
+                                            <constraint firstAttribute="bottom" secondItem="wDi-gM-IEW" secondAttribute="bottom" constant="40" id="tGC-MT-WF3"/>
+                                            <constraint firstItem="tnx-Nh-aqW" firstAttribute="top" secondItem="1Uj-cg-Jhp" secondAttribute="bottom" constant="20" id="ttj-md-Pjh"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q4X-8p-9tv">
-                                        <rect key="frame" x="97" y="533" width="220" height="44"/>
-                                        <state key="normal" image="buttonAllow"/>
-                                        <connections>
-                                            <action selector="allowPermissionButtonAction:" destination="WI4-mk-ieh" eventType="touchUpInside" id="x8H-bq-tzv"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wDi-gM-IEW">
-                                        <rect key="frame" x="164.5" y="602" width="85" height="30"/>
-                                        <state key="normal" title="May be later"/>
-                                        <connections>
-                                            <action selector="mayBeLaterButtonAction:" destination="WI4-mk-ieh" eventType="touchUpInside" id="Or1-5f-Qfk"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstItem="Bla-kb-uxb" firstAttribute="leading" secondItem="NIN-Ki-qDd" secondAttribute="leading" constant="30" id="15S-B2-y5R"/>
-                                    <constraint firstItem="wDi-gM-IEW" firstAttribute="centerX" secondItem="NIN-Ki-qDd" secondAttribute="centerX" id="6ba-Og-LcG"/>
                                     <constraint firstAttribute="bottom" secondItem="Me8-Rc-bkS" secondAttribute="bottom" id="Ahg-7K-SbB"/>
-                                    <constraint firstItem="q4X-8p-9tv" firstAttribute="centerX" secondItem="wDi-gM-IEW" secondAttribute="centerX" id="By8-eH-uzw"/>
                                     <constraint firstItem="Bla-kb-uxb" firstAttribute="centerY" secondItem="NIN-Ki-qDd" secondAttribute="centerY" id="QjG-1s-d66"/>
-                                    <constraint firstItem="Bla-kb-uxb" firstAttribute="height" secondItem="NIN-Ki-qDd" secondAttribute="height" multiplier="0.731" id="RF6-eO-Ede"/>
                                     <constraint firstItem="Me8-Rc-bkS" firstAttribute="top" secondItem="NIN-Ki-qDd" secondAttribute="top" id="TPi-bp-fTv"/>
-                                    <constraint firstItem="wDi-gM-IEW" firstAttribute="top" secondItem="q4X-8p-9tv" secondAttribute="bottom" constant="25" id="XQS-gg-rb8"/>
                                     <constraint firstAttribute="trailing" secondItem="Bla-kb-uxb" secondAttribute="trailing" constant="30" id="ZVT-KP-xAo"/>
                                     <constraint firstAttribute="trailing" secondItem="Me8-Rc-bkS" secondAttribute="trailing" id="e2o-hj-Y0V"/>
                                     <constraint firstItem="Bla-kb-uxb" firstAttribute="centerX" secondItem="NIN-Ki-qDd" secondAttribute="centerX" id="lSs-fc-WDY"/>
-                                    <constraint firstAttribute="bottom" secondItem="q4X-8p-9tv" secondAttribute="bottom" constant="319" id="pKE-Yx-4oL"/>
                                     <constraint firstItem="Me8-Rc-bkS" firstAttribute="leading" secondItem="NIN-Ki-qDd" secondAttribute="leading" id="xUD-Td-05b"/>
                                 </constraints>
                             </view>
@@ -149,6 +155,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="backdrop" width="750" height="1334"/>
         <image name="buttonAllow" width="220" height="44"/>
         <image name="mic" width="240" height="240"/>
         <image name="micPermission" width="240" height="240"/>
