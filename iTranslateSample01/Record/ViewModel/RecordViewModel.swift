@@ -79,19 +79,21 @@ class RecordViewModel: RecordViewModelProtocol {
     func showPopUpToAddRecordName(temporaryPath: URL) {
         delegate?.getRecordNameFromUser(completion: { [weak self] (text) in
             guard let destination = self?.newFileLocation else { return }
-
-            self?.updateAudioFilePath(temporaryPath: temporaryPath, destination: destination, recordName: text)
+            
+            self?.updateAudioFilePath(temporaryPath: temporaryPath, destination: destination, completion: { (result) in
+                switch result {
+                case .success:
+                    self?.addNewRecord(filePath: destination, name: text)
+                case .failure(let error):
+                    self?.delegate?.showError(type: .systemError, error: error)
+                }
+            })
         })
     }
     
-    func updateAudioFilePath(temporaryPath: URL, destination: URL, recordName: String) {
-        AudioManager.shared.moveFile(from: temporaryPath, toPath: destination) { [weak self] (result) in
-            switch result {
-            case .success:
-                self?.addNewRecord(filePath: destination, name: recordName)
-            case .failure(let error):
-                self?.delegate?.showError(type: .systemError, error: error)
-            }
+    func updateAudioFilePath(temporaryPath: URL, destination: URL, completion: (Result<Bool,Error>) -> Void) {
+        AudioManager.shared.moveFile(from: temporaryPath, toPath: destination) { (result) in
+            completion(result)
         }
     }
     
