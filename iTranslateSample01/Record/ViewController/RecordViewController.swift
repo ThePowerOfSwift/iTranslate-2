@@ -57,6 +57,25 @@ class RecordViewController: UIViewController, RecordModelController {
 
 extension RecordViewController: RecordViewModelDelegate {
     
+    func getRecordNameFromUser(completion: StringCompletion?) {
+        let alertController = UIAlertController(title: "Add Record Name", message: "", preferredStyle: UIAlertController.Style.alert)
+        alertController.addTextField { (textField : UITextField!) -> Void in
+              textField.placeholder = "Enter Name"
+          }
+        let saveAction = UIAlertAction(title: "Save", style: UIAlertAction.Style.default, handler: { alert -> Void in
+            guard let textField = alertController.textFields?[0] else { return }
+            completion?(textField.text ?? "")
+          })
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: {
+              (action : UIAlertAction!) -> Void in
+            alertController.dismiss(animated: true, completion: nil)
+        })
+          alertController.addAction(saveAction)
+          alertController.addAction(cancelAction)
+
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     func showAudioPermissionAlert() {
         guard let alertView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: RecordPermissionAlertViewController.identifier) as? RecordPermissionAlertViewController else { return }
         alertView.allowCompletion = { [weak self] in

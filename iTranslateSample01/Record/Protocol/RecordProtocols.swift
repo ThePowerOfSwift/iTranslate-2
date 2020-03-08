@@ -8,10 +8,13 @@
 
 import Foundation
 
+typealias StringCompletion = (String) -> ()
+
 // viewmodel to view
 protocol RecordViewModelDelegate: ViewModelDelegate {
     func recordingDidStart()
     func recordingDidStop()
+    func getRecordNameFromUser(completion: StringCompletion?)
     func showAudioPermissionAlert()
 }
 
