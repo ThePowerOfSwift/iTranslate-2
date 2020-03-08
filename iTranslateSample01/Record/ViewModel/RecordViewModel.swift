@@ -52,13 +52,12 @@ class RecordViewModel: RecordViewModelProtocol {
                 RecordManager.shared.recordCompletion = { (recorder, flag ) in
                     print(recorder.url)
                 }
+                welf.delegate?.recordingDidStop()
             }
             else {
                 RecordManager.shared.startRecording()
-            }
-            
-            
-            (self?.state == .stop) ? self?.delegate?.recordingDidStop() : self?.delegate?.recordingDidStart()
+                welf.delegate?.recordingDidStart()
+            }            
         }
     }
     
