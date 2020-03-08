@@ -11,16 +11,19 @@ import UIKit
 class AlertController {
     enum Alert {
         case systemError
+        case empty
         
         var title: String {
             switch self {
             case .systemError: return "Error"
+            case .empty: return "No Data"
             }
         }
         
         var message: String {
             switch self {
             case .systemError: return "Something went wrong. Please try again later"
+            case .empty: return "There are no items to display"
             }
         }
     }

@@ -8,23 +8,24 @@
 
 import UIKit
 
-class RecordListViewController: UIViewController {
+class RecordListViewController: UITableViewController, RecordListModelController {
+    var viewModel = RecordListViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        viewModel.fetchRecords()
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
+
+extension RecordListViewController: RecordListViewModelDelegate {
+    func showRecords(records: [Record]) {
+        
+    }
+    
+    func showError(type: AlertController.Alert, error: Error?) {
+        AlertController.show(type: type)
+    }
+}
+
