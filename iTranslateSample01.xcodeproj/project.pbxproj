@@ -12,6 +12,7 @@
 		5E11C50E241394250084FB21 /* RecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E11C50D241394250084FB21 /* RecordViewModel.swift */; };
 		5E11C5102413D2090084FB21 /* RecordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E11C50F2413D2090084FB21 /* RecordManager.swift */; };
 		5E237E1C24143674004AB922 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E237E1B24143674004AB922 /* View.swift */; };
+		5E237E1E241507BE004AB922 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E237E1D241507BE004AB922 /* Record.swift */; };
 		5E76D7C52414018900F074DD /* RecordPermissionAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E76D7C42414018900F074DD /* RecordPermissionAlertViewController.swift */; };
 		5E76D7C82414112900F074DD /* ResponderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E76D7C72414112900F074DD /* ResponderExtension.swift */; };
 		D2D777CB22CDCC1100427FC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D777CA22CDCC1100427FC0 /* AppDelegate.swift */; };
@@ -46,6 +47,7 @@
 		5E11C50D241394250084FB21 /* RecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewModel.swift; sourceTree = "<group>"; };
 		5E11C50F2413D2090084FB21 /* RecordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordManager.swift; sourceTree = "<group>"; };
 		5E237E1B24143674004AB922 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		5E237E1D241507BE004AB922 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		5E76D7C42414018900F074DD /* RecordPermissionAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordPermissionAlertViewController.swift; sourceTree = "<group>"; };
 		5E76D7C72414112900F074DD /* ResponderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponderExtension.swift; sourceTree = "<group>"; };
 		D2D777C722CDCC1100427FC0 /* iTranslateSample01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTranslateSample01.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +130,7 @@
 		5E11C50A241389350084FB21 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5E237E1D241507BE004AB922 /* Record.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 			files = (
 				5E76D7C52414018900F074DD /* RecordPermissionAlertViewController.swift in Sources */,
 				D2D777F922CDCC8100427FC0 /* ViewModel.swift in Sources */,
+				5E237E1E241507BE004AB922 /* Record.swift in Sources */,
 				5E76D7C82414112900F074DD /* ResponderExtension.swift in Sources */,
 				D2D777CB22CDCC1100427FC0 /* AppDelegate.swift in Sources */,
 				5E003FCE2413FE33002DEA8B /* RecordProtocols.swift in Sources */,
