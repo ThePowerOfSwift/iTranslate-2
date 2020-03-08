@@ -23,5 +23,6 @@ protocol RecordModelController: ViewModelController {
 protocol RecordViewModelProtocol: ViewModel {
     var state: RecordState { get set }
     func handleRecordButtonTap()
+    func handleAllowRecordingFromPopUp()
     func showRecordList()
 }

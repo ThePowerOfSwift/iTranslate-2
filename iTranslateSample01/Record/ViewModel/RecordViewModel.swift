@@ -24,23 +24,48 @@ class RecordViewModel: RecordViewModelProtocol {
     }
     
     func handleRecordButtonTap() {
-        if state == .start {
+        switch state {
+        case .start:
             state = .stop
-        }
-        else {
-            RecordManager.checkPermissionStatus { [weak self] (status) in
-                switch status {
-                case .granted:
-                    self?.state = .start
-                case .denied, .undetermined:
-                    self?.delegate?.showAudioPermissionAlert()
-                }
+        case .stop:
+            RecordManager.shared.checkPermissionStatus { [weak self] (status) in
+                self?.handlePermissionStatus(status: status)
             }
         }
     }
     
+    func handlePermissionStatus(status: PermissionStatus) {
+        switch status {
+        case .granted:
+            state = .start
+        case .undetermined:
+            delegate?.showAudioPermissionAlert()
+        case .denied: break
+        }
+    }
+    
     func handleRecordState() {
-        (state == .stop) ? delegate?.recordingDidStop() : delegate?.recordingDidStart()
+        DispatchQueue.main.async { [weak self] in
+            guard let welf = self else { return }
+            if welf.state == .stop {
+                RecordManager.shared.stopRecording()
+                RecordManager.shared.recordCompletion = { (recorder, flag ) in
+                    print(recorder.url)
+                }
+            }
+            else {
+                RecordManager.shared.startRecording()
+            }
+            
+            
+            (self?.state == .stop) ? self?.delegate?.recordingDidStop() : self?.delegate?.recordingDidStart()
+        }
+    }
+    
+    func handleAllowRecordingFromPopUp() {
+        RecordManager.shared.requestForPermission { [weak self] (status) in
+            self?.handlePermissionStatus(status: status)
+        }
     }
     
     func showRecordList() {

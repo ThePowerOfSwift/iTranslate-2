@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 import AVFoundation
 
 typealias PermissionStatusCompletion = ((PermissionStatus) -> Void)
@@ -17,10 +18,25 @@ enum PermissionStatus {
     case undetermined
 }
 
-class RecordManager {
+class RecordManager: NSObject {
     
-    static func checkPermissionStatus(completion: PermissionStatusCompletion) {
-        switch AVAudioSession.sharedInstance().recordPermission {
+    static let shared = RecordManager()
+    
+    typealias RecordCompletion = (_ recorder: AVAudioRecorder, _ flag: Bool) -> ()
+    var recordCompletion: RecordCompletion?
+    
+    var directoryUrl: URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    var audioRecorder: AVAudioRecorder?
+    
+    private override init() { }
+    
+    let recordingSession = AVAudioSession.sharedInstance()
+    
+    func checkPermissionStatus(completion: PermissionStatusCompletion) {
+        switch recordingSession.recordPermission {
         case AVAudioSessionRecordPermission.granted:
             completion(.granted)
         case AVAudioSessionRecordPermission.denied:
@@ -32,9 +48,47 @@ class RecordManager {
         }
     }
     
-    static func requestForPermission(completion: @escaping PermissionStatusCompletion) {
-        AVAudioSession.sharedInstance().requestRecordPermission({ (isGranted) in
-            isGranted ? completion(.granted) : completion(.denied)
-        })
+    func requestForPermission(completion: @escaping PermissionStatusCompletion) {
+        do {
+            try recordingSession.setCategory(.playAndRecord, mode: .default)
+            try recordingSession.setActive(true)
+            AVAudioSession.sharedInstance().requestRecordPermission({ (isGranted) in
+                isGranted ? completion(.granted) : completion(.denied)
+            })
+        }
+        catch {
+            
+        }
+    }
+    
+    func startRecording() {
+        let audioFilename = directoryUrl.appendingPathComponent("recording.m4a")
+
+        let settings = [
+            AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
+            AVSampleRateKey: 12000,
+            AVNumberOfChannelsKey: 1,
+            AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
+        ]
+
+        do {
+            audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
+            audioRecorder?.delegate = self
+            audioRecorder?.record()
+
+        } catch {
+            
+        }
+    }
+    
+    func stopRecording() {
+        audioRecorder?.stop()
+        audioRecorder = nil
+    }
+}
+
+extension RecordManager: AVAudioRecorderDelegate {
+    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+        recordCompletion?(recorder, flag)
     }
 }

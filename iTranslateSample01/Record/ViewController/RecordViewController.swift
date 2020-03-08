@@ -60,7 +60,7 @@ extension RecordViewController: RecordViewModelDelegate {
     func showAudioPermissionAlert() {
         guard let alertView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: RecordPermissionAlertViewController.identifier) as? RecordPermissionAlertViewController else { return }
         alertView.allowCompletion = { [weak self] in
-            self?.viewModel.handleRecordButtonTap()
+            self?.viewModel.handleAllowRecordingFromPopUp()
         }
         alertView.laterCompletion = {
             
