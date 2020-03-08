@@ -86,12 +86,14 @@ class RecordManager: NSObject {
         audioRecorder = nil
     }
     
-    func moveFile(from path: URL, toPath: URL) {
+    func moveFile(from path: URL, toPath: URL, completion: (Bool) -> Void) {
         do {
             try FileManager.default.moveItem(at: path, to: toPath)
+            completion(true)
         }
         catch { 
             print(error)
+            completion(false)
         }
     }
 }

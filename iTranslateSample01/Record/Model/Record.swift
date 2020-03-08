@@ -8,8 +8,18 @@
 
 import Foundation
 
-class Record {
-    var id = ""
-    var filePath = ""
+class Record: BaseObject {
+    @objc dynamic var id = ""
+    @objc dynamic var filePath = ""
     
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+    
+    convenience init(id: String, filePath: String) {
+        self.init()
+        
+        self.id = id
+        self.filePath = filePath
+    }
 }
