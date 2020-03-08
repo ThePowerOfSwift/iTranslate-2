@@ -51,14 +51,25 @@ class RecordViewModel: RecordViewModelProtocol {
                 RecordManager.shared.stopRecording()
                 RecordManager.shared.recordCompletion = { (recorder, flag ) in
                     print(recorder.url)
+                    
+                    welf.delegate?.getRecordNameFromUser(completion: { (text) in
+                        RecordManager.shared.moveFile(from: recorder.url, toPath: welf.newFileLocation(name: text))
+                    })
+
                 }
                 welf.delegate?.recordingDidStop()
             }
             else {
                 RecordManager.shared.startRecording()
                 welf.delegate?.recordingDidStart()
-            }            
+            }
         }
+    }
+    
+    func newFileLocation(name: String) -> URL {
+        let fileName = name + ".m4a"
+        let audioFileUrl = RecordManager.shared.directoryUrl.appendingPathComponent(fileName)
+        return audioFileUrl
     }
     
     func handleAllowRecordingFromPopUp() {
