@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import AVFoundation
 
 enum RecordState {
     case start
@@ -55,10 +56,19 @@ class RecordViewModel: RecordViewModelProtocol {
             guard let welf = self else { return }
             if welf.state == .stop {
                 AudioManager.shared.stopRecording()
-                AudioManager.shared.recordCompletion = { (recorder, flag ) in
+                AudioManager.shared.recordCompletion = { [weak self] (recorder, duration, flag ) in
                     print(recorder.url)
-                    welf.showPopUpToAddRecordName(temporaryPath: recorder.url)
 
+                    welf.showPopUpToAddRecordName { (recordName) in
+                        self?.updateAudioFilePath(temporaryPath: recorder.url, completion: { (result) in
+                            switch result {
+                            case .success(let destination):
+                                self?.addNewRecord(filePath: destination, name: recordName, time: duration)
+                            case .failure(let error):
+                                self?.delegate?.showError(type: .systemError, error: error)
+                            }
+                        })
+                    }
                 }
                 welf.delegate?.recordingDidStop()
             }
@@ -69,33 +79,30 @@ class RecordViewModel: RecordViewModelProtocol {
         }
     }
     
-    func addNewRecord(filePath: URL, name: String) {
+    func addNewRecord(filePath: URL, name: String, time: String) {
         let records = Record.cached()
         
-        let record = Record(id: ("\(records.count + 1)"), filePath: filePath.absoluteString, name: name)
+        let record = Record(id: ("\(records.count + 1)"), filePath: filePath.absoluteString, name: name, time: time)
         record.save()
     }
     
-    func showPopUpToAddRecordName(temporaryPath: URL) {
-        delegate?.getRecordNameFromUser(completion: { [weak self] (text) in
-            guard let destination = self?.newFileLocation else { return }
-            
-            self?.updateAudioFilePath(temporaryPath: temporaryPath, destination: destination, completion: { (result) in
-                switch result {
-                case .success:
-                    self?.addNewRecord(filePath: destination, name: text)
-                case .failure(let error):
-                    self?.delegate?.showError(type: .systemError, error: error)
-                }
-            })
+    func showPopUpToAddRecordName(completion: StringCompletion? = nil) {
+        delegate?.getRecordNameFromUser(completion: {(text) in
+            completion?(text)
         })
     }
     
-    func updateAudioFilePath(temporaryPath: URL, destination: URL, completion: (Result<Bool,Error>) -> Void) {
+    func updateAudioFilePath(temporaryPath: URL, completion: (Result<URL,Error>) -> Void) {
+        let destination = newFileLocation
         AudioManager.shared.moveFile(from: temporaryPath, toPath: destination) { (result) in
-            completion(result)
+            switch result {
+                case .success:
+                    completion(.success(destination))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
         }
-    }
     
     func handleAllowRecordingFromPopUp() {
         AudioManager.shared.requestForPermission { [weak self] (status) in
@@ -103,7 +110,8 @@ class RecordViewModel: RecordViewModelProtocol {
         }
     }
     
-    func showRecordList() {
-        
+    func showRecordingsButtonTapped() {
+        delegate?.showRecordListingScreen()
     }
+
 }

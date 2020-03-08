@@ -16,6 +16,7 @@ protocol RecordViewModelDelegate: ViewModelDelegate {
     func recordingDidStop()
     func getRecordNameFromUser(completion: StringCompletion?)
     func showError(type: AlertController.Alert, error: Error?)
+    func showRecordListingScreen()
     func showAudioPermissionAlert()
 }
 
@@ -28,5 +29,5 @@ protocol RecordViewModelProtocol: ViewModel {
     var state: RecordState { get set }
     func handleRecordButtonTap()
     func handleAllowRecordingFromPopUp()
-    func showRecordList()
+    func showRecordingsButtonTapped()
 }

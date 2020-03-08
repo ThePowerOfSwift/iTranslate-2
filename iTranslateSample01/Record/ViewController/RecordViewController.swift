@@ -51,7 +51,7 @@ class RecordViewController: UIViewController, RecordModelController {
     }
     
     @IBAction func showRecordingButtonAction(_ sender: UIButton) {
-        viewModel.showRecordList()
+        viewModel.showRecordingsButtonTapped()
     }
 }
 
@@ -98,5 +98,10 @@ extension RecordViewController: RecordViewModelDelegate {
     
     func recordingDidStop() {
         stopRecordAnimation()
+    }
+    
+    func showRecordListingScreen() {
+        guard let listViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: RecordListViewController.identifier) as? RecordListViewController else { return }
+        navigationController?.pushViewController(listViewController, animated: true)
     }
 }
