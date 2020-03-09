@@ -64,7 +64,7 @@ class AudioManager: NSObject {
     }
     
     func startRecording() {
-        let audioFilename = directoryUrl.appendingPathComponent("recording.m4a")
+        let audioFilename = directoryUrl.appendingPathComponent("recording.mp4")
 
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
@@ -79,7 +79,7 @@ class AudioManager: NSObject {
             audioRecorder?.record()
 
         } catch {
-            
+           print(error)
         }
     }
     
@@ -100,16 +100,27 @@ class AudioManager: NSObject {
     
     func play(fileURL: URL) {
         do {
-            try? audioPlayer = AVAudioPlayer(contentsOf: fileURL)
+            try audioPlayer = AVAudioPlayer(contentsOf: fileURL)
             audioPlayer?.numberOfLoops = -1 // play indefinitely
             audioPlayer?.prepareToPlay()
             audioPlayer?.delegate = self
             audioPlayer?.play()
         }
+        catch {
+            print(error)
+        }
     }
     
-    func pausePlaying() {
+    func stop() {
         audioPlayer?.stop()
+    }
+    
+    func pause() {
+        audioPlayer?.pause()
+    }
+    
+    func resume() {
+        audioPlayer?.play()
     }
 }
 
