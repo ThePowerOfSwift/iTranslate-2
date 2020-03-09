@@ -1,5 +1,0 @@
-#import <Foundation/Foundation.h>
-@interface PodsDummy_Pods_iTranslateSample01_iTranslateSample01UITests : NSObject
-@end
-@implementation PodsDummy_Pods_iTranslateSample01_iTranslateSample01UITests
-@end
