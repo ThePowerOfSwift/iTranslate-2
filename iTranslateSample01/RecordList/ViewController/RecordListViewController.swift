@@ -55,7 +55,7 @@ class RecordListViewController: UITableViewController, RecordListModelController
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let navigation = navigationController else { return }
+
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
