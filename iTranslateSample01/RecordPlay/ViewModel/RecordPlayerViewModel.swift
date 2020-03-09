@@ -53,17 +53,6 @@ class RecordPlayerViewModel: RecordPlayerViewModelProtocol {
             playMode = .playing
             delegate?.audioPlayDidStart()
         }
-
-//         if !playing {
-//           // let audioFilePath = Bundle.main.path(forResource: filePath, ofType: "m4a")
-//        //     if let path =  {
-//
-//
-//            // }
-//
-//         } else {
-//
-//         }
     }
     
     func handleSliderProgress() {
@@ -75,5 +64,10 @@ class RecordPlayerViewModel: RecordPlayerViewModelProtocol {
             delegate?.showAudioProgress(progressValue: 0.0)
         }
 
+    }
+    
+    func viewAboutToDisappear() {
+        AudioManager.shared.stop()
+        delegate?.audioPlayDidStop()
     }
 }

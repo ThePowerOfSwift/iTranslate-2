@@ -24,4 +24,5 @@ protocol RecordPlayerViewModelProtocol: ViewModel {
     func viewDidLoadInvoked()
     func handleSliderProgress()
     func handleToggleButtonTap()
+    func viewAboutToDisappear()
 }

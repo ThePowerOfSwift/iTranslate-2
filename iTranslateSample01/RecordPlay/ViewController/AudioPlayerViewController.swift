@@ -24,6 +24,10 @@ class AudioPlayerViewController: UIViewController, RecordPlayerModelController {
         
         viewModel?.viewDidLoadInvoked()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        viewModel?.viewAboutToDisappear()
+    }
 
     @IBAction func playPauseToggleButtonAction(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected

@@ -113,6 +113,7 @@ class AudioManager: NSObject {
     
     func stop() {
         audioPlayer?.stop()
+        audioPlayer = nil
     }
     
     func pause() {
