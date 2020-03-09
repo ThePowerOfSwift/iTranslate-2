@@ -30,6 +30,8 @@ class RecordListViewModel: RecordListViewModelProtocol {
     
     func removeRecord(index: Int) {
         let recordToDelete = allRecords[index]
+        FileDataManager.removeFileAt(path: recordToDelete.filePath)
+
         recordToDelete.delete()
         
         allRecords.remove(at: index)

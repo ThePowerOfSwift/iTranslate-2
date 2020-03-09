@@ -32,6 +32,7 @@
 		5E6CEBF82416CA6000F73A1D /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6CEBF72416CA6000F73A1D /* DateExtension.swift */; };
 		5E76D7C52414018900F074DD /* RecordPermissionAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E76D7C42414018900F074DD /* RecordPermissionAlertViewController.swift */; };
 		5E76D7C82414112900F074DD /* ResponderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E76D7C72414112900F074DD /* ResponderExtension.swift */; };
+		5E9EF6C92416D6BB00462CFB /* FileDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9EF6C82416D6BB00462CFB /* FileDataManager.swift */; };
 		D2D777CB22CDCC1100427FC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D777CA22CDCC1100427FC0 /* AppDelegate.swift */; };
 		D2D777D022CDCC1100427FC0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2D777CE22CDCC1100427FC0 /* Main.storyboard */; };
 		D2D777D222CDCC1200427FC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2D777D122CDCC1200427FC0 /* Assets.xcassets */; };
@@ -87,6 +88,7 @@
 		5E6CEBF72416CA6000F73A1D /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		5E76D7C42414018900F074DD /* RecordPermissionAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordPermissionAlertViewController.swift; sourceTree = "<group>"; };
 		5E76D7C72414112900F074DD /* ResponderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponderExtension.swift; sourceTree = "<group>"; };
+		5E9EF6C82416D6BB00462CFB /* FileDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDataManager.swift; sourceTree = "<group>"; };
 		61970C44116C7CB5633F52AB /* Pods-iTranslate-iTranslateUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTranslate-iTranslateUITests.debug.xcconfig"; path = "Target Support Files/Pods-iTranslate-iTranslateUITests/Pods-iTranslate-iTranslateUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6B221982CCF8B6D590EA0F7D /* Pods-iTranslate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTranslate.debug.xcconfig"; path = "Target Support Files/Pods-iTranslate/Pods-iTranslate.debug.xcconfig"; sourceTree = "<group>"; };
 		849969A8944F7F3249C483CF /* Pods_iTranslate_iTranslateUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iTranslate_iTranslateUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -269,6 +271,7 @@
 				5E237E1B24143674004AB922 /* View.swift */,
 				5E6CEBD824153FB300F73A1D /* AlertController.swift */,
 				5E6CEBF72416CA6000F73A1D /* DateExtension.swift */,
+				5E9EF6C82416D6BB00462CFB /* FileDataManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -609,6 +612,7 @@
 				5E003FCE2413FE33002DEA8B /* RecordProtocols.swift in Sources */,
 				5E6CEBE22415620700F73A1D /* TimeIntervalExtension.swift in Sources */,
 				5E237E2424150BDE004AB922 /* BaseObject.swift in Sources */,
+				5E9EF6C92416D6BB00462CFB /* FileDataManager.swift in Sources */,
 				5E237E1C24143674004AB922 /* View.swift in Sources */,
 				5E6CEBF02416165B00F73A1D /* AudioPlayerViewController.swift in Sources */,
 				5E6CEBF3241616A800F73A1D /* RecordPlayerProtocol.swift in Sources */,

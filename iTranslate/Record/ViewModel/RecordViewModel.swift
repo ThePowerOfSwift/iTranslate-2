@@ -26,7 +26,7 @@ class RecordViewModel: RecordViewModelProtocol {
     
     var newFileLocation: URL {
         let fileName = Date().stringValue() + ".m4a"
-        let audioFileUrl = AudioManager.shared.directoryUrl.appendingPathComponent(fileName)
+        let audioFileUrl = FileDataManager.directoryUrl.appendingPathComponent(fileName)
         return audioFileUrl
     }
     

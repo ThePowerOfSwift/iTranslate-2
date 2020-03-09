@@ -25,10 +25,6 @@ class AudioManager: NSObject {
     typealias RecordCompletion = (_ recorder: AVAudioRecorder,_ duration: String, _ flag: Bool) -> ()
     var recordCompletion: RecordCompletion?
     
-    var directoryUrl: URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0]
-    }
     var audioRecorder: AVAudioRecorder?
     
     var audioPlayer: AVAudioPlayer?
@@ -64,7 +60,7 @@ class AudioManager: NSObject {
     }
     
     func startRecording() {
-        let audioFilename = directoryUrl.appendingPathComponent("recording.mp4")
+        let audioFilename = FileDataManager.directoryUrl.appendingPathComponent("recording.mp4")
 
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
