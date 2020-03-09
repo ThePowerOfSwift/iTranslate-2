@@ -26,6 +26,9 @@
 		5E6CEBE92415791300F73A1D /* RecordListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6CEBE72415791300F73A1D /* RecordListViewCell.swift */; };
 		5E6CEBEA2415791300F73A1D /* RecordListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E6CEBE82415791300F73A1D /* RecordListViewCell.xib */; };
 		5E6CEBEC24157A5E00F73A1D /* RecordDisplayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6CEBEB24157A5E00F73A1D /* RecordDisplayViewModel.swift */; };
+		5E6CEBF02416165B00F73A1D /* AudioPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6CEBEF2416165B00F73A1D /* AudioPlayerViewController.swift */; };
+		5E6CEBF3241616A800F73A1D /* RecordPlayerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6CEBF2241616A800F73A1D /* RecordPlayerProtocol.swift */; };
+		5E6CEBF6241616FA00F73A1D /* RecordPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6CEBF5241616FA00F73A1D /* RecordPlayerViewModel.swift */; };
 		5E76D7C52414018900F074DD /* RecordPermissionAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E76D7C42414018900F074DD /* RecordPermissionAlertViewController.swift */; };
 		5E76D7C82414112900F074DD /* ResponderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E76D7C72414112900F074DD /* ResponderExtension.swift */; };
 		D2D777CB22CDCC1100427FC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D777CA22CDCC1100427FC0 /* AppDelegate.swift */; };
@@ -77,6 +80,9 @@
 		5E6CEBE72415791300F73A1D /* RecordListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListViewCell.swift; sourceTree = "<group>"; };
 		5E6CEBE82415791300F73A1D /* RecordListViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordListViewCell.xib; sourceTree = "<group>"; };
 		5E6CEBEB24157A5E00F73A1D /* RecordDisplayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDisplayViewModel.swift; sourceTree = "<group>"; };
+		5E6CEBEF2416165B00F73A1D /* AudioPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerViewController.swift; sourceTree = "<group>"; };
+		5E6CEBF2241616A800F73A1D /* RecordPlayerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordPlayerProtocol.swift; sourceTree = "<group>"; };
+		5E6CEBF5241616FA00F73A1D /* RecordPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordPlayerViewModel.swift; sourceTree = "<group>"; };
 		5E76D7C42414018900F074DD /* RecordPermissionAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordPermissionAlertViewController.swift; sourceTree = "<group>"; };
 		5E76D7C72414112900F074DD /* ResponderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponderExtension.swift; sourceTree = "<group>"; };
 		61970C44116C7CB5633F52AB /* Pods-iTranslateSample01-iTranslateSample01UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTranslateSample01-iTranslateSample01UITests.debug.xcconfig"; path = "Target Support Files/Pods-iTranslateSample01-iTranslateSample01UITests/Pods-iTranslateSample01-iTranslateSample01UITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -219,6 +225,40 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		5E6CEBED241615EB00F73A1D /* RecordPlay */ = {
+			isa = PBXGroup;
+			children = (
+				5E6CEBF4241616DD00F73A1D /* ViewModel */,
+				5E6CEBF12416168500F73A1D /* Protocol */,
+				5E6CEBEE2416162800F73A1D /* ViewController */,
+			);
+			path = RecordPlay;
+			sourceTree = "<group>";
+		};
+		5E6CEBEE2416162800F73A1D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5E6CEBEF2416165B00F73A1D /* AudioPlayerViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		5E6CEBF12416168500F73A1D /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				5E6CEBF2241616A800F73A1D /* RecordPlayerProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		5E6CEBF4241616DD00F73A1D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5E6CEBF5241616FA00F73A1D /* RecordPlayerViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		5E76D7C62414110500F074DD /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +312,7 @@
 				5E11C50C2413900E0084FB21 /* Managers */,
 				5E11C507241389100084FB21 /* Record */,
 				5E11C50B241389430084FB21 /* RecordList */,
+				5E6CEBED241615EB00F73A1D /* RecordPlay */,
 				D2D777CA22CDCC1100427FC0 /* AppDelegate.swift */,
 				D2D777CE22CDCC1100427FC0 /* Main.storyboard */,
 				D2D777D122CDCC1200427FC0 /* Assets.xcassets */,
@@ -551,6 +592,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E76D7C52414018900F074DD /* RecordPermissionAlertViewController.swift in Sources */,
+				5E6CEBF6241616FA00F73A1D /* RecordPlayerViewModel.swift in Sources */,
 				D2D777F922CDCC8100427FC0 /* ViewModel.swift in Sources */,
 				5E237E1E241507BE004AB922 /* Record.swift in Sources */,
 				5E6CEBE92415791300F73A1D /* RecordListViewCell.swift in Sources */,
@@ -564,6 +606,8 @@
 				5E6CEBE22415620700F73A1D /* TimeIntervalExtension.swift in Sources */,
 				5E237E2424150BDE004AB922 /* BaseObject.swift in Sources */,
 				5E237E1C24143674004AB922 /* View.swift in Sources */,
+				5E6CEBF02416165B00F73A1D /* AudioPlayerViewController.swift in Sources */,
+				5E6CEBF3241616A800F73A1D /* RecordPlayerProtocol.swift in Sources */,
 				5E11C50624137D0C0084FB21 /* RecordViewController.swift in Sources */,
 				5E237E2024150B86004AB922 /* DataManager.swift in Sources */,
 				5E237E2224150BAC004AB922 /* Caching.swift in Sources */,
