@@ -31,6 +31,8 @@ class AudioManager: NSObject {
     }
     var audioRecorder: AVAudioRecorder?
     
+    var audioPlayer: AVAudioPlayer?
+    
     private override init() { }
     
     let recordingSession = AVAudioSession.sharedInstance()
@@ -95,6 +97,20 @@ class AudioManager: NSObject {
             completion(.failure(error))
         }
     }
+    
+    func play(fileURL: URL) {
+        do {
+            try? audioPlayer = AVAudioPlayer(contentsOf: fileURL)
+            audioPlayer?.numberOfLoops = -1 // play indefinitely
+            audioPlayer?.prepareToPlay()
+            audioPlayer?.delegate = self
+            audioPlayer?.play()
+        }
+    }
+    
+    func pausePlaying() {
+        audioPlayer?.stop()
+    }
 }
 
 extension AudioManager: AVAudioRecorderDelegate {
@@ -104,4 +120,8 @@ extension AudioManager: AVAudioRecorderDelegate {
         
         recordCompletion?(recorder,duration.stringValue(), flag)
     }
+}
+
+extension AudioManager: AVAudioPlayerDelegate {
+    
 }
