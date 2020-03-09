@@ -55,7 +55,7 @@ class RecordListViewController: UITableViewController, RecordListModelController
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        viewModel.recordSelected(index: indexPath.row)
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -82,6 +82,12 @@ class RecordListViewController: UITableViewController, RecordListModelController
 }
 
 extension RecordListViewController: RecordListViewModelDelegate {
+    func showRecordPlayer(playerViewModel: RecordPlayerViewModel) {
+        guard let playerViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: AudioPlayerViewController.identifier) as? AudioPlayerViewController else { return }
+        playerViewController.viewModel = playerViewModel
+        navigationController?.pushViewController(playerViewController, animated: true)
+    }
+    
     func showRecords(records: [RecordDisplayViewModel]) {
         self.records += records
     }

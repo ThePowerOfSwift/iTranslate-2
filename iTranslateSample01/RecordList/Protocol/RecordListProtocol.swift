@@ -10,6 +10,7 @@ import Foundation
 
 protocol RecordListViewModelDelegate: ViewModelDelegate {
     func showRecords(records: [RecordDisplayViewModel])
+    func showRecordPlayer(playerViewModel: RecordPlayerViewModel)
     func showError(type: AlertController.Alert, error: Error?)
 }
 
@@ -21,4 +22,5 @@ protocol RecordListModelController: ViewModelController {
 protocol RecordListViewModelProtocol: ViewModel {
     func fetchRecords()
     func removeRecord(index: Int)
+    func recordSelected(index: Int)
 }

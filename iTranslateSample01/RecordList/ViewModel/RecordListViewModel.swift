@@ -35,4 +35,10 @@ class RecordListViewModel: RecordListViewModelProtocol {
         allRecords.remove(at: index)
     }
     
+    func recordSelected(index: Int) {
+        let selectedRecord = allRecords[index]
+        let playerModel = RecordPlayerViewModel(filePath: selectedRecord.filePath)
+        delegate?.showRecordPlayer(playerViewModel: playerModel)
+    }
+    
 }
