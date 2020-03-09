@@ -6,13 +6,13 @@ target 'iTranslate' do
   use_frameworks!
 
   # Pods for iTranslate
-
   pod 'RealmSwift',  '~> 3.20.0'
-
 
   target 'iTranslateTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'Nimble'
+    pod 'Quick'
   end
 
   target 'iTranslateUITests' do
