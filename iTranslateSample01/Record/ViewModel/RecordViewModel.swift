@@ -25,7 +25,7 @@ class RecordViewModel: RecordViewModelProtocol {
     }
     
     var newFileLocation: URL {
-        let fileName = "\(Record.cached().count)" + ".m4a"
+        let fileName = Date().stringValue() + ".m4a"
         let audioFileUrl = AudioManager.shared.directoryUrl.appendingPathComponent(fileName)
         return audioFileUrl
     }
@@ -79,10 +79,8 @@ class RecordViewModel: RecordViewModelProtocol {
         }
     }
     
-    func addNewRecord(filePath: URL, name: String, time: String) {
-        let records = Record.cached()
-        
-        let record = Record(id: ("\(records.count + 1)"), filePath: filePath.absoluteString, name: name, time: time)
+    func addNewRecord(filePath: URL, name: String, time: String) {        
+        let record = Record(id: Date().stringValue(), filePath: filePath.absoluteString, name: name, time: time)
         record.save()
     }
     
