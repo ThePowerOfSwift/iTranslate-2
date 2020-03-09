@@ -8,13 +8,19 @@
 
 import Foundation
 
+enum PlayMode {
+    case playing
+    case paused
+    case notStarted
+}
+
 class RecordPlayerViewModel: RecordPlayerViewModelProtocol {
 
     var delegate: RecordPlayerViewModelDelegate?
 
     var filePath = ""
     
-    var playing = false
+    var playMode: PlayMode = .notStarted
         
     convenience init(filePath: String) {
         self.init()
@@ -29,25 +35,35 @@ class RecordPlayerViewModel: RecordPlayerViewModelProtocol {
     func handleToggleButtonTap() {
         
         if let currentPlayer = AudioManager.shared.audioPlayer {
-            playing = currentPlayer.isPlaying
-         } else {
-             return;
+            playMode = currentPlayer.isPlaying ? .playing : .paused
          }
 
-         if !playing {
-            let audioFilePath = Bundle.main.path(forResource: filePath, ofType: "m4a")
-             if let path = audioFilePath {
-                guard let fileURL = NSURL(string: path) else { return }
-                AudioManager.shared.play(fileURL: fileURL as URL)
-                
-                delegate?.audioPlayDidStart()
-
-             }
-
-         } else {
-            AudioManager.shared.pausePlaying()
+        switch playMode {
+        case .playing:
+            playMode = .paused
+            AudioManager.shared.pause()
             delegate?.audioPlayDidStop()
-         }
+        case .notStarted:
+            guard let fileURL = NSURL(string: filePath) else { return }
+            AudioManager.shared.play(fileURL: fileURL as URL)
+            delegate?.audioPlayDidStart()
+            playMode = .playing
+        case .paused:
+            AudioManager.shared.resume()
+            playMode = .playing
+            delegate?.audioPlayDidStart()
+        }
+
+//         if !playing {
+//           // let audioFilePath = Bundle.main.path(forResource: filePath, ofType: "m4a")
+//        //     if let path =  {
+//
+//
+//            // }
+//
+//         } else {
+//
+//         }
     }
     
     func handleSliderProgress() {
