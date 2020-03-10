@@ -27,7 +27,6 @@ extension NavigationBarOptions where Self: UIViewController {
     func setNavigationColor(color: UIColor) {
         navigationController?.navigationBar.barTintColor = color
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-
     }
     
     func handleNavigationBackButton() {
