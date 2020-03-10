@@ -18,7 +18,7 @@ class RecordListViewModel: RecordListViewModelProtocol {
         let allData = Record.cached()
         allRecords = allData
         let allDisplayModels = allData.map { (record) -> RecordDisplayViewModel in
-            return RecordDisplayViewModel(name: record.name, duration: record.time)
+            return RecordDisplayViewModel(name: record.name, duration: record.duration)
         }
         if allDisplayModels.isEmpty {
             delegate?.showError(type: .empty, error: nil)
