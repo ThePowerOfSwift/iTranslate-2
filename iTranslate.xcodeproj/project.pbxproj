@@ -33,6 +33,7 @@
 		5E76D7C52414018900F074DD /* RecordPermissionAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E76D7C42414018900F074DD /* RecordPermissionAlertViewController.swift */; };
 		5E76D7C82414112900F074DD /* ResponderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E76D7C72414112900F074DD /* ResponderExtension.swift */; };
 		5E9EF6C92416D6BB00462CFB /* FileDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9EF6C82416D6BB00462CFB /* FileDataManager.swift */; };
+		5E9EF6CF2416DBB800462CFB /* RecordViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9EF6CE2416DBB800462CFB /* RecordViewModelTests.swift */; };
 		D2D777CB22CDCC1100427FC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D777CA22CDCC1100427FC0 /* AppDelegate.swift */; };
 		D2D777D022CDCC1100427FC0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2D777CE22CDCC1100427FC0 /* Main.storyboard */; };
 		D2D777D222CDCC1200427FC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2D777D122CDCC1200427FC0 /* Assets.xcassets */; };
@@ -89,6 +90,7 @@
 		5E76D7C42414018900F074DD /* RecordPermissionAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordPermissionAlertViewController.swift; sourceTree = "<group>"; };
 		5E76D7C72414112900F074DD /* ResponderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponderExtension.swift; sourceTree = "<group>"; };
 		5E9EF6C82416D6BB00462CFB /* FileDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDataManager.swift; sourceTree = "<group>"; };
+		5E9EF6CE2416DBB800462CFB /* RecordViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewModelTests.swift; sourceTree = "<group>"; };
 		61970C44116C7CB5633F52AB /* Pods-iTranslate-iTranslateUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTranslate-iTranslateUITests.debug.xcconfig"; path = "Target Support Files/Pods-iTranslate-iTranslateUITests/Pods-iTranslate-iTranslateUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6B221982CCF8B6D590EA0F7D /* Pods-iTranslate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTranslate.debug.xcconfig"; path = "Target Support Files/Pods-iTranslate/Pods-iTranslate.debug.xcconfig"; sourceTree = "<group>"; };
 		849969A8944F7F3249C483CF /* Pods_iTranslate_iTranslateUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iTranslate_iTranslateUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -168,7 +170,6 @@
 		5E11C5092413892D0084FB21 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				D2D777F822CDCC8100427FC0 /* ViewModel.swift */,
 				5E11C50D241394250084FB21 /* RecordViewModel.swift */,
 			);
 			path = ViewModel;
@@ -276,6 +277,38 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		5E9EF6CA2416DAD900462CFB /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				5E9EF6CB2416DAEC00462CFB /* ViewModel */,
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
+		5E9EF6CB2416DAEC00462CFB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5E9EF6CE2416DBB800462CFB /* RecordViewModelTests.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5E9EF6CC2416DB7F00462CFB /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				5E9EF6CD2416DB8D00462CFB /* ViewModel */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		5E9EF6CD2416DB8D00462CFB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D2D777F822CDCC8100427FC0 /* ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		71A657329A65EADCC2988B49 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -314,6 +347,7 @@
 		D2D777C922CDCC1100427FC0 /* iTranslate */ = {
 			isa = PBXGroup;
 			children = (
+				5E9EF6CC2416DB7F00462CFB /* Base */,
 				5E76D7C62414110500F074DD /* Helpers */,
 				5E11C50C2413900E0084FB21 /* Managers */,
 				5E11C507241389100084FB21 /* Record */,
@@ -332,6 +366,7 @@
 		D2D777DE22CDCC1300427FC0 /* iTranslateTests */ = {
 			isa = PBXGroup;
 			children = (
+				5E9EF6CA2416DAD900462CFB /* Record */,
 				D2D777DF22CDCC1300427FC0 /* iTranslateTests.swift */,
 				D2D777E122CDCC1300427FC0 /* Info.plist */,
 			);
@@ -387,6 +422,7 @@
 				D2D777D722CDCC1300427FC0 /* Sources */,
 				D2D777D822CDCC1300427FC0 /* Frameworks */,
 				D2D777D922CDCC1300427FC0 /* Resources */,
+				3026602906F5EF0E7C89C0BE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -556,6 +592,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		3026602906F5EF0E7C89C0BE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iTranslateTests/Pods-iTranslateTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iTranslateTests/Pods-iTranslateTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iTranslateTests/Pods-iTranslateTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		6CB998116CF49E5759666668 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -630,6 +683,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2D777E022CDCC1300427FC0 /* iTranslateTests.swift in Sources */,
+				5E9EF6CF2416DBB800462CFB /* RecordViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
