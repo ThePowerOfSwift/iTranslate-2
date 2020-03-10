@@ -16,7 +16,7 @@ enum PlayMode {
 
 class RecordPlayerViewModel: RecordPlayerViewModelProtocol {
 
-    var delegate: RecordPlayerViewModelDelegate?
+    weak var delegate: RecordPlayerViewModelDelegate?
 
     var filePath = ""
     

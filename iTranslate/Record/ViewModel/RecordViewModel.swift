@@ -16,7 +16,7 @@ enum RecordState {
 
 class RecordViewModel: RecordViewModelProtocol {
     
-    var delegate: RecordViewModelDelegate?
+    weak var delegate: RecordViewModelDelegate?
     
     var state: RecordState = .stop {
         didSet {
@@ -54,11 +54,12 @@ class RecordViewModel: RecordViewModelProtocol {
     func handleRecordState() {
         DispatchQueue.main.async { [weak self] in
             guard let welf = self else { return }
-            if welf.state == .stop {
+            switch welf.state  {
+            case .stop :
                 AudioManager.shared.stopRecording()
                 AudioManager.shared.recordCompletion = { [weak self] (recorder, duration, flag ) in
                     print(recorder.url)
-
+                    
                     welf.showPopUpToAddRecordName { (recordName) in
                         self?.updateAudioFilePath(temporaryPath: recorder.url, completion: { (result) in
                             switch result {
@@ -71,8 +72,7 @@ class RecordViewModel: RecordViewModelProtocol {
                     }
                 }
                 welf.delegate?.recordingDidStop()
-            }
-            else {
+            case .start :
                 AudioManager.shared.startRecording()
                 welf.delegate?.recordingDidStart()
             }
@@ -111,5 +111,4 @@ class RecordViewModel: RecordViewModelProtocol {
     func showRecordingsButtonTapped() {
         delegate?.showRecordListingScreen()
     }
-
 }

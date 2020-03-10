@@ -10,7 +10,7 @@ import Foundation
 
 class RecordListViewModel: RecordListViewModelProtocol {
     
-    var delegate: RecordListViewModelDelegate?
+    weak var delegate: RecordListViewModelDelegate?
     
     var allRecords = [Record]()
 
