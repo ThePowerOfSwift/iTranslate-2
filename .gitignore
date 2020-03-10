@@ -1,3 +1,8 @@
 
 Pods/*
 *.DS_Store
+iTranslate.xcworkspace/xcuserdata/sajeev.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
+iTranslate.xcworkspace/xcuserdata/sajeev.xcuserdatad/UserInterfaceState.xcuserstate
+iTranslate.xcodeproj/xcuserdata/sajeev.xcuserdatad/xcschemes/xcschememanagement.plist
+iTranslate.xcodeproj/xcshareddata/xcschemes/iTranslate.xcscheme
+*.xcbkptlist
