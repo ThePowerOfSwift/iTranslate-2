@@ -92,15 +92,15 @@ class RecordViewModel: RecordViewModelProtocol {
     
     func updateAudioFilePath(temporaryPath: URL, completion: (Result<URL,Error>) -> Void) {
         let destination = newFileLocation
-        AudioManager.shared.moveFile(from: temporaryPath, toPath: destination) { (result) in
+        FileDataManager.moveFile(from: temporaryPath, toPath: destination) { (result) in
             switch result {
-                case .success:
-                    completion(.success(destination))
-                case .failure(let error):
-                    completion(.failure(error))
-                }
+            case .success:
+                completion(.success(destination))
+            case .failure(let error):
+                completion(.failure(error))
             }
         }
+    }
     
     func handleAllowRecordingFromPopUp() {
         AudioManager.shared.requestForPermission { [weak self] (status) in
