@@ -11,7 +11,7 @@ import Foundation
 class Record: BaseObject {
     @objc dynamic var id = ""
     @objc dynamic var name = ""
-    @objc dynamic var time = ""
+    @objc dynamic var duration = ""
     @objc dynamic var filePath = ""
 
     override static func primaryKey() -> String? {
@@ -24,6 +24,6 @@ class Record: BaseObject {
         self.id = id
         self.filePath = filePath
         self.name = name
-        self.time = time
+        self.duration = time
     }
 }

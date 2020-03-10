@@ -25,22 +25,7 @@ extension Caching where Self: BaseObject {
         return DataManager.shared.getAll(type: self)
     }
     
-    /// Update the object inside update handler
-    func update(updateHandler: (Self) -> Void) {
-        try? DataManager.shared.database.write {
-            updateHandler(self)
-        }
-    }
-    
     func delete() {
         DataManager.shared.remove(object: self)
-    }
-}
-
-extension Array where Element: BaseObject {
-    func saveAll() {
-        DispatchQueue.main.async {
-            DataManager.shared.save(objects: self)
-        }
     }
 }
