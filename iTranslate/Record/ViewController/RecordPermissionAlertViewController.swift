@@ -13,7 +13,6 @@ typealias VoidClosure = () -> Void
 class RecordPermissionAlertViewController: UIViewController {
     
     var allowCompletion: VoidClosure?
-    var laterCompletion: VoidClosure?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,9 +27,6 @@ class RecordPermissionAlertViewController: UIViewController {
     }
     
     @IBAction func mayBeLaterButtonAction(_ sender: UIButton) {
-        dismiss(animated: true) { [weak self] in
-             self?.laterCompletion?()
-         }
+        dismiss(animated: true)
     }
-    
 }

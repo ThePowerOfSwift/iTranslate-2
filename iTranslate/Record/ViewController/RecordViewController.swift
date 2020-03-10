@@ -70,8 +70,7 @@ extension RecordViewController: RecordViewModelDelegate {
             guard let textField = alertController.textFields?[0] else { return }
             completion?(textField.text ?? "")
           })
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: {
-              (action : UIAlertAction!) -> Void in
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: { action -> Void in
             alertController.dismiss(animated: true, completion: nil)
         })
           alertController.addAction(saveAction)
@@ -85,9 +84,7 @@ extension RecordViewController: RecordViewModelDelegate {
         alertView.allowCompletion = { [weak self] in
             self?.viewModel.handleAllowRecordingFromPopUp()
         }
-        alertView.laterCompletion = {
-            
-        }
+
         alertView.modalPresentationStyle = .fullScreen
         present(alertView, animated: true, completion: nil)
     }
