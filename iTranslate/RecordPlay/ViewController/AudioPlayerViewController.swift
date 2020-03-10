@@ -8,7 +8,11 @@
 
 import UIKit
 
-class AudioPlayerViewController: UIViewController, RecordPlayerModelController {
+class AudioPlayerViewController: BaseViewController, RecordPlayerModelController {
+    
+    override var shouldHideNavigationBar: Bool {
+        return true
+    }
     
     var viewModel: RecordPlayerViewModel?
     

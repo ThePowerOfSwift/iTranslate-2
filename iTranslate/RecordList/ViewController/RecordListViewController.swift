@@ -28,10 +28,28 @@ class RecordListViewController: UITableViewController, RecordListModelController
         tableView.rowHeight = UITableView.automaticDimension
 
         title = "Recordings"
-        
+                
         registerCell()
+        
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        
+        addRightBarButton()
+        
+        setNavigationColor(color: ThemeManager.Color.navigationBlueColor)
 
         viewModel.fetchRecords()
+    }
+    
+    private func addRightBarButton() {
+        let rightBarButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneButtonAction))
+        
+        var barButtons = self.navigationItem.rightBarButtonItems ?? []
+        barButtons.append(rightBarButton)
+        navigationController?.navigationItem.rightBarButtonItems = barButtons
+    }
+    
+    @objc func doneButtonAction() {
+        navigationController?.popViewController(animated: true)
     }
     
     private func registerCell() {
@@ -96,4 +114,6 @@ extension RecordListViewController: RecordListViewModelDelegate {
         AlertController.show(type: type)
     }
 }
+
+extension RecordListViewController: NavigationBarOptions { }
 

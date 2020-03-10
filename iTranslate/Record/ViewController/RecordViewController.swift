@@ -8,7 +8,11 @@
 
 import UIKit
 
-class RecordViewController: UIViewController, RecordModelController {
+class RecordViewController: BaseViewController, RecordModelController {
+    
+    override var shouldHideNavigationBar: Bool {
+        return true
+    }
     
     var viewModel = RecordViewModel()
     let animationView = UIView(frame: CGRect(x: 200, y: 200, width: 150, height: 150))
