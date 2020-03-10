@@ -84,16 +84,6 @@ class AudioManager: NSObject {
         audioRecorder = nil
     }
     
-    func moveFile(from path: URL, toPath: URL, completion: (Result<Bool,Error>) -> Void) {
-        do {
-            try FileManager.default.moveItem(at: path, to: toPath)
-            completion(.success(true))
-        }
-        catch { 
-            completion(.failure(error))
-        }
-    }
-    
     func play(fileURL: URL) {
         do {
             try audioPlayer = AVAudioPlayer(contentsOf: fileURL)
