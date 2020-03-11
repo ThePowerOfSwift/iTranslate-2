@@ -9,6 +9,11 @@
 import UIKit
 
 class RecordListViewController: UITableViewController, RecordListModelController {
+    
+    var shouldHideBackButton: Bool {
+        return true
+    }
+    
     var viewModel = RecordListViewModel()
     
     var records: [RecordDisplayViewModel] = [RecordDisplayViewModel]() {
@@ -39,16 +44,16 @@ class RecordListViewController: UITableViewController, RecordListModelController
         addRightBarButton()
         
         setNavigationColor(color: ThemeManager.Color.navigationBlueColor)
+        
+        handleNavigationBackButton()
 
         viewModel.fetchRecords()
     }
     
     func addRightBarButton() {
-        let rightBarButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneButtonAction))
-        
-        var barButtons = self.navigationItem.rightBarButtonItems ?? []
-        barButtons.append(rightBarButton)
-        navigationController?.navigationItem.rightBarButtonItems = barButtons
+        let rightBarButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonAction))
+        rightBarButton.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.white], for: .normal)
+        navigationItem.rightBarButtonItem  = rightBarButton
     }
     
     @objc func doneButtonAction() {

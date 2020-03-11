@@ -37,6 +37,15 @@
 		5E9EF6D1241775D600462CFB /* NavigationBarOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9EF6D0241775D600462CFB /* NavigationBarOptions.swift */; };
 		5E9EF6D4241776B000462CFB /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9EF6D3241776B000462CFB /* BaseViewController.swift */; };
 		5E9EF6D6241786DD00462CFB /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9EF6D5241786DD00462CFB /* ThemeManager.swift */; };
+		5E9EF6DC2417DBD000462CFB /* RecordListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9EF6DB2417DBD000462CFB /* RecordListViewModelTests.swift */; };
+		5E9EF6DF2417E5A400462CFB /* MockNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9EF6DE2417E5A400462CFB /* MockNavigationController.swift */; };
+		5E9EF6E12417E5BB00462CFB /* CachingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9EF6E02417E5BB00462CFB /* CachingTests.swift */; };
+		5E9EF6E32417E98C00462CFB /* MockFileDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9EF6E22417E98C00462CFB /* MockFileDataManager.swift */; };
+		5E9EF6E52417EC2A00462CFB /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9EF6E42417EC2A00462CFB /* MockData.swift */; };
+		5E9EF6E72417F99A00462CFB /* MockDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9EF6E62417F99A00462CFB /* MockDataManager.swift */; };
+		5E9EF6EA241814C700462CFB /* RecordViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9EF6E9241814C700462CFB /* RecordViewControllerTests.swift */; };
+		5E9EF6EC2418202A00462CFB /* AlertControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9EF6EB2418202A00462CFB /* AlertControllerTests.swift */; };
+		5E9EF6EF2418AB9C00462CFB /* RecordListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9EF6EE2418AB9C00462CFB /* RecordListViewControllerTests.swift */; };
 		D2D777CB22CDCC1100427FC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D777CA22CDCC1100427FC0 /* AppDelegate.swift */; };
 		D2D777D022CDCC1100427FC0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2D777CE22CDCC1100427FC0 /* Main.storyboard */; };
 		D2D777D222CDCC1200427FC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2D777D122CDCC1200427FC0 /* Assets.xcassets */; };
@@ -97,6 +106,15 @@
 		5E9EF6D0241775D600462CFB /* NavigationBarOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarOptions.swift; sourceTree = "<group>"; };
 		5E9EF6D3241776B000462CFB /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		5E9EF6D5241786DD00462CFB /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		5E9EF6DB2417DBD000462CFB /* RecordListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListViewModelTests.swift; sourceTree = "<group>"; };
+		5E9EF6DE2417E5A400462CFB /* MockNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNavigationController.swift; sourceTree = "<group>"; };
+		5E9EF6E02417E5BB00462CFB /* CachingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachingTests.swift; sourceTree = "<group>"; };
+		5E9EF6E22417E98C00462CFB /* MockFileDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFileDataManager.swift; sourceTree = "<group>"; };
+		5E9EF6E42417EC2A00462CFB /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		5E9EF6E62417F99A00462CFB /* MockDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataManager.swift; sourceTree = "<group>"; };
+		5E9EF6E9241814C700462CFB /* RecordViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewControllerTests.swift; sourceTree = "<group>"; };
+		5E9EF6EB2418202A00462CFB /* AlertControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerTests.swift; sourceTree = "<group>"; };
+		5E9EF6EE2418AB9C00462CFB /* RecordListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListViewControllerTests.swift; sourceTree = "<group>"; };
 		61970C44116C7CB5633F52AB /* Pods-iTranslate-iTranslateUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTranslate-iTranslateUITests.debug.xcconfig"; path = "Target Support Files/Pods-iTranslate-iTranslateUITests/Pods-iTranslate-iTranslateUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6B221982CCF8B6D590EA0F7D /* Pods-iTranslate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTranslate.debug.xcconfig"; path = "Target Support Files/Pods-iTranslate/Pods-iTranslate.debug.xcconfig"; sourceTree = "<group>"; };
 		849969A8944F7F3249C483CF /* Pods_iTranslate_iTranslateUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iTranslate_iTranslateUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -288,6 +306,7 @@
 		5E9EF6CA2416DAD900462CFB /* Record */ = {
 			isa = PBXGroup;
 			children = (
+				5E9EF6E8241814AF00462CFB /* ViewController */,
 				5E9EF6CB2416DAEC00462CFB /* ViewModel */,
 			);
 			path = Record;
@@ -322,6 +341,52 @@
 			isa = PBXGroup;
 			children = (
 				5E9EF6D3241776B000462CFB /* BaseViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		5E9EF6D72417A7DC00462CFB /* RecordList */ = {
+			isa = PBXGroup;
+			children = (
+				5E9EF6ED2418AB8000462CFB /* ViewController */,
+				5E9EF6D82417A7E900462CFB /* ViewModel */,
+			);
+			path = RecordList;
+			sourceTree = "<group>";
+		};
+		5E9EF6D82417A7E900462CFB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5E9EF6DB2417DBD000462CFB /* RecordListViewModelTests.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5E9EF6DD2417E59100462CFB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				5E9EF6DE2417E5A400462CFB /* MockNavigationController.swift */,
+				5E9EF6E02417E5BB00462CFB /* CachingTests.swift */,
+				5E9EF6E22417E98C00462CFB /* MockFileDataManager.swift */,
+				5E9EF6E42417EC2A00462CFB /* MockData.swift */,
+				5E9EF6E62417F99A00462CFB /* MockDataManager.swift */,
+				5E9EF6EB2418202A00462CFB /* AlertControllerTests.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		5E9EF6E8241814AF00462CFB /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5E9EF6E9241814C700462CFB /* RecordViewControllerTests.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		5E9EF6ED2418AB8000462CFB /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5E9EF6EE2418AB9C00462CFB /* RecordListViewControllerTests.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -383,7 +448,9 @@
 		D2D777DE22CDCC1300427FC0 /* iTranslateTests */ = {
 			isa = PBXGroup;
 			children = (
+				5E9EF6DD2417E59100462CFB /* Helpers */,
 				5E9EF6CA2416DAD900462CFB /* Record */,
+				5E9EF6D72417A7DC00462CFB /* RecordList */,
 				D2D777DF22CDCC1300427FC0 /* iTranslateTests.swift */,
 				D2D777E122CDCC1300427FC0 /* Info.plist */,
 			);
@@ -702,8 +769,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E9EF6EF2418AB9C00462CFB /* RecordListViewControllerTests.swift in Sources */,
+				5E9EF6EA241814C700462CFB /* RecordViewControllerTests.swift in Sources */,
 				D2D777E022CDCC1300427FC0 /* iTranslateTests.swift in Sources */,
+				5E9EF6E32417E98C00462CFB /* MockFileDataManager.swift in Sources */,
 				5E9EF6CF2416DBB800462CFB /* RecordViewModelTests.swift in Sources */,
+				5E9EF6EC2418202A00462CFB /* AlertControllerTests.swift in Sources */,
+				5E9EF6DC2417DBD000462CFB /* RecordListViewModelTests.swift in Sources */,
+				5E9EF6E12417E5BB00462CFB /* CachingTests.swift in Sources */,
+				5E9EF6E52417EC2A00462CFB /* MockData.swift in Sources */,
+				5E9EF6DF2417E5A400462CFB /* MockNavigationController.swift in Sources */,
+				5E9EF6E72417F99A00462CFB /* MockDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

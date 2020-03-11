@@ -21,12 +21,15 @@ class BaseViewController: UIViewController, NavigationBarOptions {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setNavigationColor(color: ThemeManager.Color.navigationBlueColor)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         handleNavigationBackButton()
-                
-        setNavigationColor(color: .blue)
         
         navigationController?.setNavigationBarHidden(shouldHideNavigationBar, animated: true)
-
     }
 
 }

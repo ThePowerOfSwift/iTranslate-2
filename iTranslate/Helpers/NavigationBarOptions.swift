@@ -9,14 +9,14 @@
 import UIKit
 
 protocol NavigationBarOptions {
-    var shouldShowBackButton: Bool { get }
+    var shouldHideBackButton: Bool { get }
     var shouldHideNavigationBar: Bool { get }
     func handleNavigationBackButton()
     func setNavigationColor(color: UIColor)
 }
 
 extension NavigationBarOptions where Self: UIViewController {
-    var shouldShowBackButton: Bool {
+    var shouldHideBackButton: Bool {
         return false
     }
     
@@ -30,8 +30,7 @@ extension NavigationBarOptions where Self: UIViewController {
     }
     
     func handleNavigationBackButton() {
-        if shouldHideNavigationBar {
-            navigationController?.navigationBar.topItem?.title = " "
-        }
+        navigationController?.navigationBar.tintColor = .white
+        navigationItem.setHidesBackButton(shouldHideBackButton, animated: true)
     }
 }
