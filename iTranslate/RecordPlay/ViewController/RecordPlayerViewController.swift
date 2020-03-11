@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AudioPlayerViewController: BaseViewController, RecordPlayerModelController {
+class RecordPlayerViewController: BaseViewController, RecordPlayerModelController {
     
     override var shouldHideNavigationBar: Bool {
         return false
@@ -19,7 +19,6 @@ class AudioPlayerViewController: BaseViewController, RecordPlayerModelController
     }
     
     var viewModel: RecordPlayerViewModel?
-    
     var displayLink: CADisplayLink?
     
     @IBOutlet weak var playToggleButton: UIButton?
@@ -44,7 +43,7 @@ class AudioPlayerViewController: BaseViewController, RecordPlayerModelController
     }
 }
 
-extension AudioPlayerViewController: RecordPlayerViewModelDelegate {
+extension RecordPlayerViewController: RecordPlayerViewModelDelegate {
     func showAudioProgress(progressValue: Float) {
         audioProgressSlider?.setValue(progressValue, animated: false)
     }
@@ -60,9 +59,5 @@ extension AudioPlayerViewController: RecordPlayerViewModelDelegate {
     
     func audioPlayDidStop() {
         displayLink?.invalidate()
-    }
-    
-    func showError(type: AlertController.Alert, error: Error?) {
-        
     }
 }

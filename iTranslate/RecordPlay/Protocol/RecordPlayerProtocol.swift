@@ -12,7 +12,6 @@ protocol RecordPlayerViewModelDelegate: ViewModelDelegate {
     func audioPlayDidStart()
     func audioPlayDidStop()
     func showAudioProgress(progressValue: Float)
-    func showError(type: AlertController.Alert, error: Error?)
 }
 
 protocol RecordPlayerModelController: ViewModelController {
