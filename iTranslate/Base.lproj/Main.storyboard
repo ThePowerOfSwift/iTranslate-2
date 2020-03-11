@@ -198,10 +198,10 @@
             </objects>
             <point key="canvasLocation" x="1732" y="140"/>
         </scene>
-        <!--Audio Player View Controller-->
+        <!--Record Player View Controller-->
         <scene sceneID="3CR-Qf-XZE">
             <objects>
-                <viewController storyboardIdentifier="AudioPlayerViewController" id="Ory-Vt-ROc" customClass="AudioPlayerViewController" customModule="iTranslate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecordPlayerViewController" id="Ory-Vt-ROc" customClass="RecordPlayerViewController" customModule="iTranslate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9CI-5H-9Pd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

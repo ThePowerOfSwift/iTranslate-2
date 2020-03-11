@@ -104,7 +104,7 @@ class RecordListViewController: UITableViewController, RecordListModelController
 
 extension RecordListViewController: RecordListViewModelDelegate {
     func showRecordPlayer(playerViewModel: RecordPlayerViewModel) {
-        guard let playerViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: AudioPlayerViewController.identifier) as? AudioPlayerViewController else { return }
+        guard let playerViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: RecordPlayerViewController.identifier) as? RecordPlayerViewController else { return }
         playerViewController.viewModel = playerViewModel
         navigationController?.pushViewController(playerViewController, animated: true)
     }
