@@ -24,7 +24,7 @@ class RecordViewModel: RecordViewModelProtocol {
         }
     }
     
-    var newFileLocation: URL {
+    private var newFileLocation: URL {
         let fileName = Date().stringValue() + ".m4a"
         let audioFileUrl = FileDataManager.directoryUrl.appendingPathComponent(fileName)
         return audioFileUrl
@@ -51,24 +51,26 @@ class RecordViewModel: RecordViewModelProtocol {
         }
     }
     
-    func handleRecordState() {
+    private func createAudioRecord(_ recordName: String, url: URL, duration: String) {
+        updateAudioFilePath(temporaryPath: url, completion: { [weak self] (result) in
+            switch result {
+            case .success(let destination):
+                self?.addNewRecord(filePath: destination, name: recordName, time: duration)
+            case .failure(let error):
+                self?.delegate?.showError(type: .systemError, error: error)
+            }
+        })
+    }
+    
+    private func handleRecordState() {
         DispatchQueue.main.async { [weak self] in
             guard let welf = self else { return }
             switch welf.state  {
             case .stop :
                 AudioManager.shared.stopRecording()
-                AudioManager.shared.recordCompletion = { [weak self] (recorder, duration, flag ) in
-                    print(recorder.url)
-                    
+                AudioManager.shared.recordCompletion = {(recorder, duration, flag ) in
                     welf.showPopUpToAddRecordName { (recordName) in
-                        self?.updateAudioFilePath(temporaryPath: recorder.url, completion: { (result) in
-                            switch result {
-                            case .success(let destination):
-                                self?.addNewRecord(filePath: destination, name: recordName, time: duration)
-                            case .failure(let error):
-                                self?.delegate?.showError(type: .systemError, error: error)
-                            }
-                        })
+                        welf.createAudioRecord(recordName, url: recorder.url, duration: duration)
                     }
                 }
                 welf.delegate?.recordingDidStop()
@@ -78,6 +80,7 @@ class RecordViewModel: RecordViewModelProtocol {
             }
         }
     }
+    
     
     func addNewRecord(filePath: URL, name: String, time: String) {        
         let record = Record(id: Date().stringValue(), filePath: filePath.absoluteString, name: name, time: time)
