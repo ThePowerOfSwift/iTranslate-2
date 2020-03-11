@@ -14,12 +14,6 @@ class RecordPermissionAlertViewController: UIViewController {
     
     var allowCompletion: VoidClosure?
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
     @IBAction func allowPermissionButtonAction(_ sender: UIButton) {
         dismiss(animated: true) { [weak self] in
             self?.allowCompletion?()

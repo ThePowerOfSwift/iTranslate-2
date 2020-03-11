@@ -28,20 +28,20 @@ class DataManager {
     }
     
     func save(objects: [Object], update: Bool = true) {
-        try! database.write {
+        try? database.write {
             database.add(objects, update: .modified)
         }
     }
 
     func removeAll(type: Object.Type) {
         let objects = database.objects(type)
-        try! database.write {
+        try? database.write {
             database.delete(objects)
         }
     }
     
     func remove(object: Object, update: Bool = true) {
-        try! database.write {
+        try? database.write {
             database.delete(object)
         }
     }
