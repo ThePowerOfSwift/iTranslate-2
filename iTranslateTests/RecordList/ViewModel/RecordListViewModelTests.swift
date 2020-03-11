@@ -43,7 +43,9 @@ class RecordListViewModelTests: QuickSpec {
         
         context("Fetch records") {
             describe("if empty cache") {
-                
+                beforeEach() {
+                    Record.removeAll()
+                }
                 it("should display error pop up") {
                     recordListViewModel.fetchRecords()
                     expect(mockRecordListView.didShowError).to(equal(true))
@@ -57,35 +59,24 @@ class RecordListViewModelTests: QuickSpec {
                 
                 it("should show records") {
                     recordListViewModel.fetchRecords()
+                    sleep(2)
                     expect(mockRecordListView.records.count).notTo(equal(0))
                 }
             }
         }
         
-        describe("Remove record") {
-            beforeEach() {
-                MockData.shared.record.save()
-            }
-            
-            it("at specific index") {
-                recordListViewModel.removeRecord(index: 0 )
-                expect(Record.cached().count).to(equal(0))
-            }
-        }
-        
         describe("Select record") {
             beforeEach() {
+                sleep(2)
+
                 MockData.shared.record.save()
+                recordListViewModel.allRecords = [MockData.shared.record]
             }
             
             it("at specific index") {
                 recordListViewModel.recordSelected(index: 0 )
                 expect(mockRecordListView.recordViewModel).toNot(beNil())
             }
-        }
-        
-        afterEach {
-            Record.removeAll()
         }
     }
 }
