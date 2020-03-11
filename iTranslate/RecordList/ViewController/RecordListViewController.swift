@@ -18,6 +18,9 @@ class RecordListViewController: UITableViewController, RecordListModelController
             }
         }
     }
+    
+    private let headerHeight: CGFloat = 50.0
+    private let rowHeight: CGFloat = 60.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,11 +93,11 @@ class RecordListViewController: UITableViewController, RecordListModelController
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        50.0
+        headerHeight
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        60.0
+        rowHeight
     }
 
 }
