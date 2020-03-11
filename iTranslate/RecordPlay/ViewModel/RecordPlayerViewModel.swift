@@ -56,7 +56,7 @@ class RecordPlayerViewModel: RecordPlayerViewModelProtocol {
     }
     
     func handleSliderProgress() {
-        if let player = AudioManager.shared.audioPlayer {
+        if let player = AudioManager.shared.audioPlayer,player.duration != 0 {
             let progress = player.currentTime / player.duration
             delegate?.showAudioProgress(progressValue: Float(progress))
         }

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		11CE131E689086DA10C95F25 /* Pods_iTranslate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E9FE8B3BB9E3973F26600FB /* Pods_iTranslate.framework */; };
+		13A0CEFC24197FA500A80492 /* RecordViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A0CEFB24197FA500A80492 /* RecordViewModelTests.swift */; };
+		13A0CF0324197FE900A80492 /* RecordPlayerViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A0CF0124197FE900A80492 /* RecordPlayerViewControllerTests.swift */; };
 		1D27795CB8F2F16425A6681F /* Pods_iTranslateTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B9F51CA989A173ADCC9034 /* Pods_iTranslateTests.framework */; };
 		5E003FCE2413FE33002DEA8B /* RecordProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E003FCD2413FE33002DEA8B /* RecordProtocols.swift */; };
 		5E11C50624137D0C0084FB21 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E11C50524137D0B0084FB21 /* RecordViewController.swift */; };
@@ -33,7 +35,6 @@
 		5E76D7C52414018900F074DD /* RecordPermissionAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E76D7C42414018900F074DD /* RecordPermissionAlertViewController.swift */; };
 		5E76D7C82414112900F074DD /* ResponderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E76D7C72414112900F074DD /* ResponderExtension.swift */; };
 		5E9EF6C92416D6BB00462CFB /* FileDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9EF6C82416D6BB00462CFB /* FileDataManager.swift */; };
-		5E9EF6CF2416DBB800462CFB /* RecordViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9EF6CE2416DBB800462CFB /* RecordViewModelTests.swift */; };
 		5E9EF6D1241775D600462CFB /* NavigationBarOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9EF6D0241775D600462CFB /* NavigationBarOptions.swift */; };
 		5E9EF6D4241776B000462CFB /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9EF6D3241776B000462CFB /* BaseViewController.swift */; };
 		5E9EF6D6241786DD00462CFB /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9EF6D5241786DD00462CFB /* ThemeManager.swift */; };
@@ -74,6 +75,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1363408C24194F9E00DB824F /* RecordPlayerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordPlayerViewModelTests.swift; sourceTree = "<group>"; };
+		13A0CF0124197FE900A80492 /* RecordPlayerViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordPlayerViewControllerTests.swift; sourceTree = "<group>"; };
+		13A0CEFB24197FA500A80492 /* RecordViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordViewModelTests.swift; sourceTree = "<group>"; };
+		13A0CF0124197FE900A80492 /* RecordPlayerViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordPlayerViewControllerTests.swift; sourceTree = "<group>"; };
+		13A0CF042419804F00A80492 /* RecordPlayerViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordPlayerViewModelTests.swift; sourceTree = "<group>"; };
 		27016E514107061BDD1CE88F /* Pods-iTranslate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTranslate.release.xcconfig"; path = "Target Support Files/Pods-iTranslate/Pods-iTranslate.release.xcconfig"; sourceTree = "<group>"; };
 		3E9FE8B3BB9E3973F26600FB /* Pods_iTranslate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iTranslate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56EC0CB14DEB18D115185FE9 /* Pods-iTranslateTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTranslateTests.debug.xcconfig"; path = "Target Support Files/Pods-iTranslateTests/Pods-iTranslateTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -102,7 +108,6 @@
 		5E76D7C42414018900F074DD /* RecordPermissionAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordPermissionAlertViewController.swift; sourceTree = "<group>"; };
 		5E76D7C72414112900F074DD /* ResponderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponderExtension.swift; sourceTree = "<group>"; };
 		5E9EF6C82416D6BB00462CFB /* FileDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDataManager.swift; sourceTree = "<group>"; };
-		5E9EF6CE2416DBB800462CFB /* RecordViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewModelTests.swift; sourceTree = "<group>"; };
 		5E9EF6D0241775D600462CFB /* NavigationBarOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarOptions.swift; sourceTree = "<group>"; };
 		5E9EF6D3241776B000462CFB /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		5E9EF6D5241786DD00462CFB /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
@@ -163,6 +168,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13A0CEFD24197FE900A80492 /* RecordPlay */ = {
+			isa = PBXGroup;
+			children = (
+				13A0CEFE24197FE900A80492 /* ViewModel */,
+				13A0CF0024197FE900A80492 /* ViewController */,
+			);
+			path = RecordPlay;
+			sourceTree = "<group>";
+		};
+		13A0CEFE24197FE900A80492 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				13A0CF042419804F00A80492 /* RecordPlayerViewModelTests.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		13A0CF0024197FE900A80492 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				13A0CF0124197FE900A80492 /* RecordPlayerViewControllerTests.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		5E003FCF2413FE46002DEA8B /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
@@ -315,7 +345,7 @@
 		5E9EF6CB2416DAEC00462CFB /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				5E9EF6CE2416DBB800462CFB /* RecordViewModelTests.swift */,
+				13A0CEFB24197FA500A80492 /* RecordViewModelTests.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -451,6 +481,7 @@
 				5E9EF6DD2417E59100462CFB /* Helpers */,
 				5E9EF6CA2416DAD900462CFB /* Record */,
 				5E9EF6D72417A7DC00462CFB /* RecordList */,
+				13A0CEFD24197FE900A80492 /* RecordPlay */,
 				D2D777DF22CDCC1300427FC0 /* iTranslateTests.swift */,
 				D2D777E122CDCC1300427FC0 /* Info.plist */,
 			);
@@ -772,14 +803,15 @@
 				5E9EF6EF2418AB9C00462CFB /* RecordListViewControllerTests.swift in Sources */,
 				5E9EF6EA241814C700462CFB /* RecordViewControllerTests.swift in Sources */,
 				D2D777E022CDCC1300427FC0 /* iTranslateTests.swift in Sources */,
+				13A0CEFC24197FA500A80492 /* RecordViewModelTests.swift in Sources */,
 				5E9EF6E32417E98C00462CFB /* MockFileDataManager.swift in Sources */,
-				5E9EF6CF2416DBB800462CFB /* RecordViewModelTests.swift in Sources */,
 				5E9EF6EC2418202A00462CFB /* AlertControllerTests.swift in Sources */,
 				5E9EF6DC2417DBD000462CFB /* RecordListViewModelTests.swift in Sources */,
 				5E9EF6E12417E5BB00462CFB /* CachingTests.swift in Sources */,
 				5E9EF6E52417EC2A00462CFB /* MockData.swift in Sources */,
 				5E9EF6DF2417E5A400462CFB /* MockNavigationController.swift in Sources */,
 				5E9EF6E72417F99A00462CFB /* MockDataManager.swift in Sources */,
+				13A0CF0324197FE900A13A0CF0324197FE900A8049280492 /* RecordPlayerViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
