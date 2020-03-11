@@ -31,7 +31,7 @@ class RecordListViewControllerTests: QuickSpec {
         describe("Navigation Bar") {
             it("Add Navigation Bar") {
                 recordListViewController.addRightBarButton()
-                expect(recordListViewController.navigationController?.navigationItem.rightBarButtonItems?.isEmpty).to(equal(false))
+                expect(recordListViewController.navigationItem.rightBarButtonItem).toNot(beNil())
             }
         }
         
