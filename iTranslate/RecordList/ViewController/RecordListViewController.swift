@@ -40,7 +40,7 @@ class RecordListViewController: UITableViewController, RecordListModelController
         viewModel.fetchRecords()
     }
     
-    private func addRightBarButton() {
+    func addRightBarButton() {
         let rightBarButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneButtonAction))
         
         var barButtons = self.navigationItem.rightBarButtonItems ?? []
