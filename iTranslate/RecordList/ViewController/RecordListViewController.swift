@@ -60,7 +60,7 @@ class RecordListViewController: UITableViewController, RecordListModelController
         navigationController?.popViewController(animated: true)
     }
     
-    private func registerCell() {
+    func registerCell() {
         tableView.register(UINib(nibName: RecordListViewCell.identifier, bundle: nil), forCellReuseIdentifier: RecordListViewCell.identifier)
     }
     

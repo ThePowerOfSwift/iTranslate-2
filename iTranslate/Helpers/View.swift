@@ -12,7 +12,7 @@ class View: UIView {
     @IBInspectable var cornerRadius: Double {
          get {
            return Double(self.layer.cornerRadius)
-         }set {
+         } set {
            self.layer.cornerRadius = CGFloat(newValue)
          }
     }

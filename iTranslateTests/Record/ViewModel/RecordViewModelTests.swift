@@ -82,6 +82,7 @@ class RecordViewModelTests: QuickSpec {
                 }
             }
         }
+        
         context("Check handle record state") {
             
             describe("at stop state") {
@@ -91,7 +92,7 @@ class RecordViewModelTests: QuickSpec {
                 }
                 
                 it("should stop recording") {
-                    expect(mockRecordView.didRecordingStop ).toEventually(equal(true), timeout: 5, pollInterval: 1, description: "Should stop")
+                    expect(mockRecordView.didRecordingStop).toEventually(equal(true), timeout: 5, pollInterval: 1, description: "Should stop")
 
                 }
             }
