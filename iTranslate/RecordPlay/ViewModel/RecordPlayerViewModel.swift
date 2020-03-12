@@ -14,7 +14,7 @@ enum PlayMode {
     case notStarted
 }
 
-final class RecordPlayerViewModel: RecordPlayerViewModelProtocol {
+class RecordPlayerViewModel: RecordPlayerViewModelProtocol {
 
     weak var delegate: RecordPlayerViewModelDelegate?
 
@@ -63,7 +63,6 @@ final class RecordPlayerViewModel: RecordPlayerViewModelProtocol {
         else {
             delegate?.showAudioProgress(progressValue: 0.0)
         }
-
     }
     
     func viewAboutToDisappear() {
