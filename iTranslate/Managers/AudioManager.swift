@@ -47,36 +47,26 @@ class AudioManager: NSObject {
     }
     
     func requestForPermission(completion: @escaping PermissionStatusCompletion) {
-        do {
-            try recordingSession.setCategory(.playAndRecord, mode: .default)
-            try recordingSession.setActive(true)
-            AVAudioSession.sharedInstance().requestRecordPermission({ (isGranted) in
-                isGranted ? completion(.granted) : completion(.denied)
-            })
-        }
-        catch {
-            
-        }
+        try? recordingSession.setCategory(.playAndRecord, mode: .default)
+        try? recordingSession.setActive(true)
+        AVAudioSession.sharedInstance().requestRecordPermission({ (isGranted) in
+            isGranted ? completion(.granted) : completion(.denied)
+        })
     }
     
     func startRecording() {
         let audioFilename = FileDataManager.directoryUrl.appendingPathComponent("recording.mp4")
-
+        
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
             AVSampleRateKey: 12000,
             AVNumberOfChannelsKey: 1,
             AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
         ]
-
-        do {
-            audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
-            audioRecorder?.delegate = self
-            audioRecorder?.record()
-
-        } catch {
-           print(error)
-        }
+        
+        audioRecorder = try? AVAudioRecorder(url: audioFilename, settings: settings)
+        audioRecorder?.delegate = self
+        audioRecorder?.record()
     }
     
     func stopRecording() {
