@@ -12,11 +12,13 @@ class AlertController {
     enum Alert {
         case systemError
         case empty
+        case success(message: String)
         
         var title: String {
             switch self {
             case .systemError: return "Error"
             case .empty: return "No Data"
+            case .success: return "Success"
             }
         }
         
@@ -24,6 +26,7 @@ class AlertController {
             switch self {
             case .systemError: return "Something went wrong. Please try again later"
             case .empty: return "There are no items to display"
+            case .success(let message): return message
             }
         }
     }

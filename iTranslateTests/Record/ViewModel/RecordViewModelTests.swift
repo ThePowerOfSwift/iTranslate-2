@@ -13,12 +13,15 @@ import Nimble
 class RecordViewModelTests: QuickSpec {
     
     class MockRecordView : RecordViewModelDelegate {
+        
         var didRecordingStart = false
         var didRecordingStop = false
         var didShowError = false
         var didShowRecordListingScreen = false
         var didShowAudioPermissionAlert = false
         var didGetRecordNameFromUser = false
+        var didShowSuccessAlert = false
+
         
         func recordingDidStart() {
             didRecordingStart = true
@@ -42,6 +45,10 @@ class RecordViewModelTests: QuickSpec {
         
         func showAudioPermissionAlert() {
             didShowAudioPermissionAlert = true
+        }
+        
+        func showSuccessAlert(type: AlertController.Alert) {
+            didShowSuccessAlert = true
         }
     }
     

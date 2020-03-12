@@ -85,6 +85,7 @@ final class RecordViewModel: RecordViewModelProtocol {
     func addNewRecord(filePath: URL, name: String, time: String) {        
         let record = Record(id: Date().stringValue(), filePath: filePath.absoluteString, name: name, time: time)
         record.save()
+        delegate?.showSuccessAlert(type: .success(message: "Record Added Successfully"))
     }
     
     func showPopUpToAddRecordName(completion: StringCompletion? = nil) {

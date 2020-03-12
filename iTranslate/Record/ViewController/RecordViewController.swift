@@ -60,7 +60,7 @@ class RecordViewController: BaseViewController, RecordModelController {
 }
 
 extension RecordViewController: RecordViewModelDelegate {
-    
+
     func getRecordNameFromUser(completion: StringCompletion?) {
         let alertController = UIAlertController(title: "Add Record Name", message: "", preferredStyle: .alert)
         alertController.addTextField { (textField : UITextField!) -> Void in
@@ -91,6 +91,10 @@ extension RecordViewController: RecordViewModelDelegate {
     
     func showError(type: AlertController.Alert, error: Error?) {
         AlertController.show(type: type, error: error)
+    }
+    
+    func showSuccessAlert(type: AlertController.Alert) {
+        AlertController.show(type: type)
     }
     
     func recordingDidStart() {

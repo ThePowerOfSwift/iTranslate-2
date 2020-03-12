@@ -18,6 +18,7 @@ protocol RecordViewModelDelegate: ViewModelDelegate {
     func showError(type: AlertController.Alert, error: Error?)
     func showRecordListingScreen()
     func showAudioPermissionAlert()
+    func showSuccessAlert(type: AlertController.Alert)
 }
 
 protocol RecordModelController: ViewModelController {
