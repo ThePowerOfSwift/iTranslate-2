@@ -11,8 +11,8 @@ target 'iTranslate' do
   target 'iTranslateTests' do
     inherit! :search_paths
     # Pods for testing
-    pod 'Nimble'
-    pod 'Quick'
+    pod 'Nimble',  '~> 8.0.4'
+    pod 'Quick',  '~> 2.2.0'
   end
 
   target 'iTranslateUITests' do

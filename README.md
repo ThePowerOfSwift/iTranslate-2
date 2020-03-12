@@ -1,15 +1,18 @@
 # iTranslate
 
-## Guides
+## Details
+Sample test which records voice of user, save it and play back from the list of recordings
 
-### General Guides
-- [How to write the perfect pull request][2]
-- [How to write a git commit message][3]
-- [A successful git branching model][4]
+## Features
+- Records voice
+- List all the previously saved recordings
+- Play any previously stored recordings
 
-### Swift Coding Guides
-- [Swift coding style guide][5]
-- [Swift code documentation guide][6]
+## Installation
+- In Terminal, go to project directory and install pods to install dependencies. "pod install"
+
+## Requirements
+- In Terminal, go
 
 
 [1]:	https://magnum.travis-ci.com/sonicomobile/itranslate-pro
