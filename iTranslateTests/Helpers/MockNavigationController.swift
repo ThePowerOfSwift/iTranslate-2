@@ -11,7 +11,15 @@ import UIKit
 class MockNavigationController: UINavigationController {
     
     var pushedViewController: UIViewController?
-
+    
+    convenience init(rootViewControllr: UIViewController) {
+        self.init(rootViewController: rootViewControllr)
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        window.rootViewController = self
+        window.makeKeyAndVisible()
+        rootViewControllr.loadView()
+    }
+    
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         pushedViewController = viewController
         super.pushViewController(viewController, animated: true)

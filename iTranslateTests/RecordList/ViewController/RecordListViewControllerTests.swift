@@ -21,11 +21,7 @@ class RecordListViewControllerTests: QuickSpec {
             
             let storyboard = UIStoryboard(name: "Main", bundle: .main)
             recordListViewController = storyboard.instantiateViewController(withIdentifier: RecordListViewController.identifier) as? RecordListViewController
-            mockNavigationController = MockNavigationController(rootViewController: recordListViewController)
-            let window = UIWindow(frame: UIScreen.main.bounds)
-            window.rootViewController = mockNavigationController
-            window.makeKeyAndVisible()
-            recordListViewController.loadView()
+            mockNavigationController = MockNavigationController(rootViewControllr: recordListViewController)
             recordListViewController.registerCell()
         }
         

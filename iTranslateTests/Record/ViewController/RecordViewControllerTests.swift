@@ -21,11 +21,7 @@ class RecordViewControllerTests: QuickSpec {
 
             let storyboard = UIStoryboard(name: "Main", bundle: .main)
             recordViewController = storyboard.instantiateViewController(withIdentifier: RecordViewController.identifier) as? RecordViewController
-             mockNavigationController = MockNavigationController(rootViewController: recordViewController)
-             let window = UIWindow(frame: UIScreen.main.bounds)
-             window.rootViewController = mockNavigationController
-             window.makeKeyAndVisible()
-             recordViewController.loadView()
+             mockNavigationController = MockNavigationController(rootViewControllr: recordViewController)
         }
         
         describe("Record animation") {

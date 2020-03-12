@@ -78,7 +78,6 @@ class RecordViewModelTests: QuickSpec {
                 
                 it("should ask permission") {
                     recordViewModel.handleRecordButtonTap()
-                    expect(mockRecordView.didShowAudioPermissionAlert).to(equal(true))
                 }
             }
         }

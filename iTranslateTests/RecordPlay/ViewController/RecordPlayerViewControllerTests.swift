@@ -48,12 +48,7 @@ class RecordPlayerViewControllerTests: QuickSpec {
             let storyboard = UIStoryboard(name: "Main", bundle: .main)
             recordPlayerViewController = storyboard.instantiateViewController(withIdentifier: RecordPlayerViewController.identifier) as? RecordPlayerViewController
             recordPlayerViewController.viewModel = viewModel
-            mockNavigationController = MockNavigationController(rootViewController: recordPlayerViewController)
-            
-            let window = UIWindow(frame: UIScreen.main.bounds)
-            window.rootViewController = mockNavigationController
-            window.makeKeyAndVisible()
-            recordPlayerViewController.loadView()
+            mockNavigationController = MockNavigationController(rootViewControllr: recordPlayerViewController)
         }
         
         describe("did load") {
