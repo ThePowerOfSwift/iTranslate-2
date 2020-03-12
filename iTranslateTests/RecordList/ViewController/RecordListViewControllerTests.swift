@@ -54,6 +54,13 @@ class RecordListViewControllerTests: QuickSpec {
             }
         }
         
+        describe("Error") {
+            it("should show error pop up") {
+                recordListViewController.showError(type: .systemError, error: nil)
+                expect(mockNavigationController.topViewController).toNot(beAKindOf(AlertController.self))
+            }
+        }
+        
         describe("Records list cell") {
             beforeEach() {
                 recordListViewController?.records = [RecordDisplayViewModel(name: MockData.shared.record.name, duration: MockData.shared.record.duration)]
@@ -80,6 +87,15 @@ class RecordListViewControllerTests: QuickSpec {
                 }
             }
         }
+        
+
+        describe("Should show record player") {
+            it("player view controller") {
+                recordListViewController.showRecordPlayer(playerViewModel: RecordPlayerViewModel(filePath: MockData.shared.recordingFilePath.absoluteString))
+                expect(mockNavigationController.pushedViewController).to(beAKindOf(RecordPlayerViewController.self))
+            }
+        }
+        
     }
     
 }
