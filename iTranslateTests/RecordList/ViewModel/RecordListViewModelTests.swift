@@ -59,7 +59,6 @@ class RecordListViewModelTests: QuickSpec {
                 
                 it("should show records") {
                     recordListViewModel.fetchRecords()
-                    sleep(2)
                     expect(mockRecordListView.records.count).notTo(equal(0))
                 }
             }
@@ -67,8 +66,6 @@ class RecordListViewModelTests: QuickSpec {
         
         describe("Select record") {
             beforeEach() {
-                sleep(2)
-
                 MockData.shared.record.save()
                 recordListViewModel.allRecords = [MockData.shared.record]
             }

@@ -26,6 +26,7 @@ class RecordListViewControllerTests: QuickSpec {
             window.rootViewController = mockNavigationController
             window.makeKeyAndVisible()
             recordListViewController.loadView()
+            recordListViewController.registerCell()
         }
         
         describe("Navigation Bar") {
@@ -60,6 +61,8 @@ class RecordListViewControllerTests: QuickSpec {
         describe("Records list cell") {
             beforeEach() {
                 recordListViewController?.records = [RecordDisplayViewModel(name: MockData.shared.record.name, duration: MockData.shared.record.duration)]
+                recordListViewController.viewModel.allRecords = [MockData.shared.record]
+                recordListViewController.registerCell()
             }
             
             it("Should be configured") {
@@ -72,7 +75,9 @@ class RecordListViewControllerTests: QuickSpec {
         describe("Records list cell") {
             beforeEach() {
                recordListViewController?.records = [RecordDisplayViewModel(name: MockData.shared.record.name, duration: MockData.shared.record.duration)]
+                recordListViewController.viewModel.allRecords = [MockData.shared.record]
             }
+            
             context("on tap") {
                 it("Should be audio player view") {
                     recordListViewController?.tableView(recordListViewController!.tableView!, didSelectRowAt: IndexPath(row: 0, section: 0))

@@ -18,9 +18,11 @@ class MockData {
         recordingFilePath = path
         
         FileManager.default.createFile(atPath: recordingFilePath.absoluteString, contents: nil, attributes: nil)
-        record = Record(id: "test", filePath: recordingFilePath.absoluteString, name: "test", time: Date().stringValue())
     }
     
     let recordingFilePath: URL
-    let record: Record
+    var record: Record {
+       return Record(id: Date().stringValue(), filePath: recordingFilePath.absoluteString, name: "test", time: Date().stringValue())
+    }
+
 }
