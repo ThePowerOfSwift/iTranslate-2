@@ -26,7 +26,7 @@ class RecordViewController: BaseViewController, RecordModelController {
     }
     
     func startRecordAnimation() {
-        animationView.layer.cornerRadius = 75
+        animationView.layer.cornerRadius = animationView.frame.size.height/2
         animationView.backgroundColor = UIColor.red
         animationView.layer.borderColor = UIColor.red.cgColor
         animationView.layer.borderWidth = 2.0
@@ -35,7 +35,7 @@ class RecordViewController: BaseViewController, RecordModelController {
         let scaleAnimation:CABasicAnimation = CABasicAnimation(keyPath: "transform.scale")
 
         scaleAnimation.duration = 0.5
-        scaleAnimation.repeatCount = 30.0
+        scaleAnimation.repeatCount = Float.infinity
         scaleAnimation.autoreverses = true
         scaleAnimation.fromValue = 1;
         scaleAnimation.toValue = 1.2;
