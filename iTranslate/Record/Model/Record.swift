@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Record: BaseObject {
+final class Record: BaseObject {
     @objc dynamic var id = ""
     @objc dynamic var name = ""
     @objc dynamic var duration = ""

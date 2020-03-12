@@ -11,9 +11,4 @@ import Foundation
 struct RecordDisplayViewModel {
     let name: String
     let duration: String
-    
-    init(name: String, duration: String) {
-        self.name = name
-        self.duration = duration
-    }
 }

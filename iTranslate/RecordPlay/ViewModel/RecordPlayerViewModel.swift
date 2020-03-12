@@ -14,7 +14,7 @@ enum PlayMode {
     case notStarted
 }
 
-class RecordPlayerViewModel: RecordPlayerViewModelProtocol {
+final class RecordPlayerViewModel: RecordPlayerViewModelProtocol {
 
     weak var delegate: RecordPlayerViewModelDelegate?
 

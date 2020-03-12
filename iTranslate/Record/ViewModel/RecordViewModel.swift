@@ -14,7 +14,7 @@ enum RecordState {
     case stop
 }
 
-class RecordViewModel: RecordViewModelProtocol {
+final class RecordViewModel: RecordViewModelProtocol {
     
     weak var delegate: RecordViewModelDelegate?
     

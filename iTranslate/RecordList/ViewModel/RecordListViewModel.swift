@@ -8,7 +8,7 @@
 
 import Foundation
 
-class RecordListViewModel: RecordListViewModelProtocol {
+final class RecordListViewModel: RecordListViewModelProtocol {
     
     weak var delegate: RecordListViewModelDelegate?
     
